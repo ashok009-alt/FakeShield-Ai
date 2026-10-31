@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="ember" x1="10" y1="6" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fdba74"/>
+      <stop offset="0.55" stop-color="#fb923c"/>
+      <stop offset="1" stop-color="#ea580c"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#140c07"/>
+  <path
+    d="M32 7.5 52 15v14.2c0 12.1-8.4 21.2-20 26.3-11.6-5.1-20-14.2-20-26.3V15Z"
+    fill="rgba(249,115,22,0.16)"
+    stroke="url(#ember)"
+    stroke-width="3.2"
+    stroke-linejoin="round"
+  />
+  <path
+    d="m22.5 31.5 6.6 6.6L42 23.6"
+    fill="none"
+    stroke="url(#ember)"
+    stroke-width="4.6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

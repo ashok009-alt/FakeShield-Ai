@@ -1,0 +1,89 @@
+// GENERATED from prisma/schema.prisma — do not edit by hand.
+// Provider swapped to PostgreSQL for a Neon/serverless deployment.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Analysis {
+  id              String   @id @default(cuid())
+  sessionId       String
+  inputType       String
+  rawInput        String
+  meta            String?
+  riskScore       Int
+  riskLevel       String
+  confidence      Float
+  summary         String
+  signals         String
+  extracted       String
+  recommendations String
+  threatFeed      String   @default("heuristic")
+  createdAt       DateTime @default(now())
+
+  @@index([sessionId, createdAt])
+  @@index([sessionId, riskLevel, createdAt])
+  @@index([sessionId, inputType, createdAt])
+}
+
+model ScamPattern {
+  id             String   @id
+  name           String
+  category       String
+  riskLevel      String
+  summary        String
+  warningSigns   String
+  exampleMessage String
+  goal           String
+  protection     String
+  relatedSignals String
+  icon           String
+  sortOrder      Int      @default(0)
+}
+
+model QuizQuestion {
+  id          String @id
+  question    String
+  options     String
+  answerIndex Int
+  explanation String
+  sortOrder   Int    @default(0)
+}
+
+model PhoneIntel {
+  number         String   @id
+  reportCount    Int      @default(0)
+  riskLevel      String   @default("High")
+  categories     String
+  summary        String
+  lastReportedAt DateTime
+  updatedAt      DateTime @updatedAt
+
+  @@index([reportCount])
+}
+
+model PhoneReport {
+  id        String   @id @default(cuid())
+  number    String
+  category  String
+  note      String?
+  createdAt DateTime @default(now())
+
+  @@index([number, createdAt])
+}
+
+/// Optional weekly threat-report mailing list. Addresses are stored locally and
+/// only receive mail when SENDGRID_API_KEY + SENDGRID_FROM_EMAIL are set.
+model DigestSubscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  source    String   @default("trends")
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+}

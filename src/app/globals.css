@@ -1,0 +1,1156 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* ── Ember / threat-intelligence palette ─────────────────────── */
+  /* Primary: deep warm charcoal with a molten-orange core          */
+  --color-background: #0b0704;
+  --color-foreground: #f3e8dc;
+
+  /* Card / panel surfaces — slightly lighter than background       */
+  --color-card: #171009;
+  --color-card-foreground: #f3e8dc;
+
+  /* Muted — ember-tinted secondary surfaces                        */
+  --color-muted: #231709;
+  --color-muted-foreground: #b39c88;
+
+  /* Borders — warm bronze, subtle                                  */
+  --color-border: #3a2a1c;
+
+  /* Inputs                                                         */
+  --color-input: #1b120b;
+  --color-ring: #fb923c;
+
+  /* Primary action: ember orange (heat, urgency, authority)        */
+  --color-primary: #f97316;
+  --color-primary-foreground: #180a02;
+
+  /* Accent: gold — verification / highlight                        */
+  --color-accent: #fbbf24;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+
+@layer base {
+
+  *,
+  ::before,
+  ::after {
+    border-color: var(--color-border);
+  }
+
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+    background-color: var(--color-background);
+    /* Ember tonal wash — deep charcoal with a slow warm bloom */
+    background-image:
+      radial-gradient(ellipse 100% 50% at 50% 0%, rgba(251, 146, 60, 0.06) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 40% at 0% 60%, rgba(120, 53, 15, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse 50% 35% at 100% 80%, rgba(251, 191, 36, 0.035) 0%, transparent 50%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: rgba(249, 115, 22, 0.3);
+    color: #fff7ed;
+  }
+
+  :focus-visible {
+    outline: 2px solid rgba(251, 146, 60, 0.75);
+    outline-offset: 2px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0e0906;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #3b2a1b;
+    border-radius: 4px;
+    border: 1px solid #0e0906;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #563b26;
+  }
+}
+
+@layer components {
+
+  /* ── Layout ────────────────────────────────────────────────────── */
+  .page-shell {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .page-shell {
+      padding-inline: 2rem;
+    }
+  }
+
+  .skip-link {
+    position: fixed;
+    left: 1rem;
+    top: -100px;
+    z-index: 100;
+    border-radius: 0.375rem;
+    background: #f97316;
+    color: #180a02;
+    padding: 0.5rem 0.875rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: top 150ms ease;
+  }
+
+  .skip-link:focus {
+    top: 1rem;
+  }
+
+  /* ── Surface — enterprise glass panel ──────────────────────────── */
+  .surface {
+    position: relative;
+    border: 1px solid #3a2a1c;
+    background: linear-gradient(160deg, #1a120b 0%, #0f0a06 100%);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.03) inset,
+      0 16px 48px -24px rgba(0, 0, 0, 0.7);
+  }
+
+  /* Elevated surface — used for the main cards                     */
+  .surface-raised {
+    position: relative;
+    border: 1px solid #4a3422;
+    background: linear-gradient(160deg, #201509 0%, #130d08 100%);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.04) inset,
+      0 0 0 1px rgba(249, 115, 22, 0.04) inset,
+      0 20px 60px -30px rgba(0, 0, 0, 0.8);
+  }
+
+  /* Micro-grain on every panel so large fills never read as flat */
+  .surface::after,
+  .surface-raised::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+    opacity: 0.035;
+    mix-blend-mode: overlay;
+  }
+
+  /* ── Hex / topology texture ─────────────────────────────────────
+     Gives depth without neon glows — subtle carbon-fibre feel      */
+  .hex-grid {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66 L56 50 L56 16 L28 0 L0 16 L0 50 Z' fill='none' stroke='rgba(90,62,38,0.45)' stroke-width='0.6'/%3E%3Cpath d='M28 100 L56 84 L56 50 L28 66 L0 50 L0 84 Z' fill='none' stroke='rgba(90,62,38,0.45)' stroke-width='0.6'/%3E%3C/svg%3E");
+    background-size: 56px 100px;
+  }
+
+  /* Dot-matrix — classic cybersecurity dashboard background        */
+  .dot-matrix {
+    background-image: radial-gradient(circle, rgba(120, 80, 45, 0.5) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Fine grid lines                                                 */
+  .grid-lines {
+    background-image:
+      linear-gradient(rgba(90, 62, 38, 0.35) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(90, 62, 38, 0.35) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 90% 75% at 50% 0%, black 20%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 75% at 50% 0%, black 20%, transparent 75%);
+  }
+
+  /* Circuit board trace pattern for section backgrounds            */
+  .circuit-bg {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect x='0' y='49' width='40' height='1' fill='rgba(120,80,45,0.4)'/%3E%3Crect x='60' y='49' width='40' height='1' fill='rgba(120,80,45,0.4)'/%3E%3Crect x='49' y='0' width='1' height='40' fill='rgba(120,80,45,0.4)'/%3E%3Crect x='49' y='60' width='1' height='40' fill='rgba(120,80,45,0.4)'/%3E%3Ccircle cx='50' cy='50' r='3' fill='none' stroke='rgba(120,80,45,0.5)' stroke-width='1'/%3E%3Ccircle cx='0'  cy='0'  r='2' fill='rgba(120,80,45,0.35)'/%3E%3Ccircle cx='100' cy='0'  r='2' fill='rgba(120,80,45,0.35)'/%3E%3Ccircle cx='0'  cy='100' r='2' fill='rgba(120,80,45,0.35)'/%3E%3Ccircle cx='100' cy='100' r='2' fill='rgba(120,80,45,0.35)'/%3E%3C/svg%3E");
+    background-size: 100px 100px;
+  }
+
+  /* ── Typography helpers ────────────────────────────────────────── */
+  .mono {
+    font-family: var(--font-mono);
+    font-variant-ligatures: none;
+  }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #fb923c;
+  }
+
+  .section-eyebrow::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: #f97316;
+    border-radius: 1px;
+  }
+
+  /* Gradient headline accent                                       */
+  .headline-accent {
+    background: linear-gradient(90deg, #fdba74 0%, #fb923c 45%, #f97316 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Threat accent — amber/orange for danger                        */
+  .threat-accent {
+    background: linear-gradient(90deg, #f59e0b 0%, #f97316 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── Badges ────────────────────────────────────────────────────── */
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    border-radius: 4px;
+    border: 1px solid rgba(249, 115, 22, 0.25);
+    background: rgba(249, 115, 22, 0.07);
+    padding: 0.2rem 0.6rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #fdba74;
+  }
+
+  .threat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    border-radius: 4px;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    background: rgba(245, 158, 11, 0.08);
+    padding: 0.2rem 0.6rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #fbbf24;
+  }
+
+  /* ── Stat value ────────────────────────────────────────────────── */
+  .stat-value {
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: #f3e8dc;
+    line-height: 1;
+  }
+
+  /* ── Skeleton ──────────────────────────────────────────────────── */
+  .skeleton {
+    position: relative;
+    overflow: hidden;
+    background: #231709;
+    border-radius: 4px;
+  }
+
+  .skeleton::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.06), transparent);
+    animation: shimmer 1.8s infinite;
+  }
+
+  /* ── Prose ──────────────────────────────────────────────────────── */
+  .prose-tight p {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .prose-tight p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ── Divider rule ───────────────────────────────────────────────── */
+  .rule {
+    border: none;
+    border-top: 1px solid #3a2a1c;
+  }
+
+  /* ── Threat level strip on left of cards ───────────────────────── */
+  .card-threat-critical {
+    border-left: 3px solid #ef4444;
+  }
+
+  .card-threat-high {
+    border-left: 3px solid #f97316;
+  }
+
+  .card-threat-medium {
+    border-left: 3px solid #f59e0b;
+  }
+
+  .card-threat-low {
+    border-left: 3px solid #22c55e;
+  }
+}
+
+/* ── Animations ──────────────────────────────────────────────────── */
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes pulse-dot {
+
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.45);
+  }
+
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 0 5px rgba(249, 115, 22, 0);
+  }
+}
+
+@keyframes threat-pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.45);
+  }
+
+  50% {
+    opacity: 0.85;
+    box-shadow: 0 0 0 4px rgba(245, 158, 11, 0);
+  }
+}
+
+@keyframes scanline {
+  0% {
+    top: -2px;
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 0.6;
+  }
+
+  95% {
+    opacity: 0.6;
+  }
+
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Live indicator dot */
+.live-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #f97316;
+  flex-shrink: 0;
+  animation: pulse-dot 2.2s ease-in-out infinite;
+}
+
+/* Threat dot (amber) */
+.threat-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #f59e0b;
+  flex-shrink: 0;
+  animation: threat-pulse 2s ease-in-out infinite;
+}
+
+/* Scanline overlay */
+.scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(249, 115, 22, 0.4) 50%, transparent 100%);
+  animation: scanline 4s linear infinite;
+  pointer-events: none;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.5s ease-out both;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   3D ANIMATION SYSTEM
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* 3D perspective container */
+.perspective-container {
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+}
+
+.perspective-far {
+  perspective: 2000px;
+}
+
+/* 3D card base */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: transform;
+}
+
+.card-3d:hover {
+  transform: rotateX(-4deg) rotateY(4deg) translateZ(12px);
+}
+
+/* Floating card shadow that deepens on hover */
+.shadow-3d {
+  box-shadow:
+    0 4px 16px -4px rgba(0, 0, 0, 0.5),
+    0 2px 4px -2px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.shadow-3d:hover {
+  box-shadow:
+    0 24px 60px -12px rgba(0, 0, 0, 0.7),
+    0 8px 24px -8px rgba(249, 115, 22, 0.15),
+    0 2px 4px -2px rgba(0, 0, 0, 0.5);
+}
+
+/* Rotating shield animation */
+@keyframes shield-rotate {
+  0% {
+    transform: rotateY(0deg) rotateX(0deg);
+  }
+
+  25% {
+    transform: rotateY(15deg) rotateX(5deg);
+  }
+
+  50% {
+    transform: rotateY(0deg) rotateX(8deg);
+  }
+
+  75% {
+    transform: rotateY(-15deg) rotateX(5deg);
+  }
+
+  100% {
+    transform: rotateY(0deg) rotateX(0deg);
+  }
+}
+
+.shield-3d {
+  transform-style: preserve-3d;
+  animation: shield-rotate 8s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Floating particle */
+@keyframes particle-float {
+  0% {
+    transform: translateY(0px) translateX(0px) scale(1);
+    opacity: 0.6;
+  }
+
+  33% {
+    transform: translateY(-20px) translateX(8px) scale(1.1);
+    opacity: 1;
+  }
+
+  66% {
+    transform: translateY(-10px) translateX(-6px) scale(0.9);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+    opacity: 0.6;
+  }
+}
+
+/* Orbiting ring */
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.orbit-ring {
+  animation: orbit 12s linear infinite;
+  transform-origin: center;
+}
+
+.orbit-ring-reverse {
+  animation: orbit-reverse 18s linear infinite;
+  transform-origin: center;
+}
+
+/* Pulsing glow ring */
+@keyframes glow-ring-pulse {
+
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.35;
+    transform: scale(1.05);
+  }
+}
+
+.glow-ring-pulse {
+  animation: glow-ring-pulse 3s ease-in-out infinite;
+}
+
+/* Counter rolling up */
+@keyframes count-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.count-up {
+  animation: count-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Threat bar fill */
+@keyframes bar-fill {
+  from {
+    width: 0;
+  }
+}
+
+.bar-fill {
+  animation: bar-fill 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Node pulse for network diagram */
+@keyframes node-pulse {
+
+  0%,
+  100% {
+    r: 4;
+    opacity: 0.6;
+  }
+
+  50% {
+    r: 6;
+    opacity: 1;
+  }
+}
+
+/* Typing cursor blink */
+@keyframes cursor-blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink::after {
+  content: "█";
+  font-size: 0.75em;
+  color: #f97316;
+  animation: cursor-blink 1s step-end infinite;
+}
+
+/* 3D depth layer — used as pseudo-depth on hero shield */
+.depth-layer {
+  transform-style: preserve-3d;
+}
+
+.depth-layer>* {
+  transform: translateZ(var(--z, 0px));
+}
+
+/* Parallax tilt — applied by JS via inline style */
+.tilt-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.12s ease-out;
+}
+
+.tilt-inner {
+  transform: translateZ(20px);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TEXTURE & AMBIENCE
+   Subtle material layers that make panels feel physical without
+   competing with content: film grain, engineering grid, scan sweep.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Fine film grain — tiled SVG turbulence, no image request */
+.texture-noise {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  background-repeat: repeat;
+}
+
+/* Fine engineering grid — masked so it fades toward the edges */
+.texture-grid {
+  background-image:
+    linear-gradient(rgba(251, 146, 60, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(251, 146, 60, 0.055) 1px, transparent 1px);
+  background-size: 28px 28px;
+  -webkit-mask-image: radial-gradient(ellipse 95% 85% at 50% 0%, black 5%, transparent 78%);
+  mask-image: radial-gradient(ellipse 95% 85% at 50% 0%, black 5%, transparent 78%);
+}
+
+/* Slow vertical telemetry sweep across the fixed backdrop */
+@keyframes site-scan {
+  0% {
+    transform: translateY(-35vh);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 1;
+  }
+
+  88% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(135vh);
+    opacity: 0;
+  }
+}
+
+.scan-sweep {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 22vh;
+  background: linear-gradient(180deg,
+      transparent 0%,
+      rgba(251, 146, 60, 0.02) 38%,
+      rgba(251, 146, 60, 0.075) 50%,
+      rgba(251, 146, 60, 0.02) 62%,
+      transparent 100%);
+  animation: site-scan 26s linear infinite;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Radar sweep disc used behind the hero threat graph */
+@keyframes radar-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.radar-sweep {
+  border-radius: 9999px;
+  background: conic-gradient(from 0deg,
+      transparent 0deg 288deg,
+      rgba(251, 146, 60, 0.05) 312deg,
+      rgba(251, 146, 60, 0.28) 348deg,
+      rgba(253, 186, 116, 0.42) 357deg,
+      transparent 360deg);
+  -webkit-mask-image: radial-gradient(circle, transparent 52%, black 62%, black 78%, transparent 86%);
+  mask-image: radial-gradient(circle, transparent 52%, black 62%, black 78%, transparent 86%);
+  animation: radar-rotate 18s linear infinite;
+  will-change: transform;
+}
+
+/* HUD corner brackets for instrument-style panels */
+.hud-corner {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-color: rgba(251, 146, 60, 0.38);
+  pointer-events: none;
+}
+
+/* Hairline top sheen for raised panels */
+.panel-sheen {
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.045) 0%, transparent 18%);
+}
+
+/* Decorative loops (orbit rings, radar sweeps) pause whenever their widget is
+   offscreen, so scrolled-past sections cost no animation frames. */
+.motion-paused,
+.motion-paused * {
+  animation-play-state: paused !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .scan-sweep,
+  .radar-sweep {
+    animation: none;
+  }
+
+  .scan-sweep {
+    opacity: 0.35;
+    top: 40%;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   LIVE TICKER + DISPLAY BRIGHTNESS
+   ═══════════════════════════════════════════════════════════════════ */
+
+.ticker-track {
+  animation: ticker-scroll 52s linear infinite;
+  will-change: transform;
+}
+
+.ticker-viewport:hover .ticker-track,
+.ticker-viewport:focus-within .ticker-track {
+  animation-play-state: paused;
+}
+
+@keyframes ticker-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* The landing hero follows the same display preference and device budget. */
+.hero-shell {
+  --hero-video: 0.85;
+}
+
+.hero-scrim,
+.hero-vignette {
+  transition: opacity 600ms ease;
+}
+
+html[data-bright="on"] .hero-shell {
+  --hero-video: 0.92;
+}
+
+html[data-bright="on"] .hero-scrim {
+  opacity: 0.8;
+}
+
+html[data-bright="on"] .hero-vignette {
+  opacity: 0.86;
+}
+
+@media (max-width: 767px) {
+  .hero-shell {
+    --hero-video: 0.7;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .hero-shell {
+    --hero-video: 0;
+  }
+}
+
+/* Brightness toggle — a luminance lift, not a full light theme. */
+.app-frame {
+  transition: filter 240ms ease;
+}
+
+html[data-bright="on"] .app-frame {
+  filter: brightness(1.18) saturate(1.04);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ADAPTIVE BACKDROP
+   The fixed backdrop reads the route and the current result:
+   analyzers get a quieter field, intelligence pages a richer one, the
+   family checker an almost-still poster. Everything below is driven by
+   custom properties so changing profile never touches the video element.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.site-backdrop {
+  --video-base: 0.6;
+  --backdrop-video: var(--video-base);
+  --scrim-top: 0.58;
+  --scrim-mid: 0.6;
+  --scrim-bottom: 0.78;
+  --scrim-lift: 0;
+  --glow-alpha: 0.075;
+  --vignette-alpha: 0.42;
+  --grid-opacity: 0.55;
+  --noise-opacity: 0.055;
+  --horizon-alpha: 0.4;
+  --sweep-opacity: 1;
+  --ambient-color: transparent;
+  --video-position: 50% 45%;
+}
+
+/* Analyzer pages: the form and verdict are the subject. */
+.site-backdrop[data-profile="focus"] {
+  --video-base: 0.38;
+  --scrim-top: 0.66;
+  --scrim-mid: 0.68;
+  --scrim-bottom: 0.82;
+  --glow-alpha: 0.045;
+  --vignette-alpha: 0.5;
+  --grid-opacity: 0.3;
+  --sweep-opacity: 0.45;
+  --video-position: 50% 40%;
+}
+
+/* Guides and quizzes: low motion, low contrast competition. */
+.site-backdrop[data-profile="learn"] {
+  --video-base: 0.32;
+  --scrim-top: 0.64;
+  --scrim-mid: 0.66;
+  --scrim-bottom: 0.8;
+  --glow-alpha: 0.035;
+  --vignette-alpha: 0.46;
+  --grid-opacity: 0.24;
+  --sweep-opacity: 0.3;
+}
+
+/* Family checker: a still, warm field that costs almost nothing. */
+.site-backdrop[data-profile="calm"] {
+  --video-base: 0.2;
+  --scrim-top: 0.72;
+  --scrim-mid: 0.74;
+  --scrim-bottom: 0.86;
+  --glow-alpha: 0.05;
+  --vignette-alpha: 0.26;
+  --grid-opacity: 0;
+  --noise-opacity: 0.03;
+  --horizon-alpha: 0.24;
+  --sweep-opacity: 0;
+}
+
+.site-backdrop[data-profile="calm"] .site-backdrop-sweep {
+  display: none;
+}
+
+.site-backdrop video,
+.site-backdrop img {
+  object-position: var(--video-position);
+}
+
+.site-backdrop-glow {
+  background:
+    radial-gradient(ellipse 90% 55% at 50% 0%,
+      rgb(249 115 22 / var(--glow-alpha)) 0%, transparent 62%),
+    radial-gradient(ellipse 70% 50% at 50% 108%,
+      rgb(251 146 60 / calc(var(--glow-alpha) * 0.55)) 0%, transparent 72%);
+}
+
+.site-backdrop-scrim {
+  background: linear-gradient(180deg,
+      rgb(11 7 4 / calc(var(--scrim-top) - var(--scrim-lift))) 0%,
+      rgb(11 7 4 / calc(var(--scrim-mid) - var(--scrim-lift))) 55%,
+      rgb(11 7 4 / calc(var(--scrim-bottom) - var(--scrim-lift))) 100%);
+}
+
+.site-backdrop-vignette {
+  background: radial-gradient(ellipse 120% 90% at 50% 50%,
+      transparent 32%, rgb(8 5 3 / var(--vignette-alpha)) 100%);
+}
+
+.site-backdrop-horizon {
+  background: linear-gradient(0deg,
+      rgb(11 7 4 / var(--horizon-alpha)) 0%,
+      rgb(11 7 4 / calc(var(--horizon-alpha) * 0.32)) 45%,
+      transparent 100%);
+}
+
+.site-backdrop-ambient {
+  background-color: var(--ambient-color);
+  -webkit-mask-image: radial-gradient(ellipse 90% 65% at 50% 100%, black 0%, transparent 78%);
+  mask-image: radial-gradient(ellipse 90% 65% at 50% 100%, black 0%, transparent 78%);
+  transition: background-color 900ms ease;
+}
+
+.site-backdrop-grid {
+  opacity: var(--grid-opacity);
+}
+
+.site-backdrop-noise {
+  opacity: var(--noise-opacity);
+}
+
+.site-backdrop-sweep {
+  opacity: var(--sweep-opacity);
+}
+
+.site-backdrop-hairline {
+  background: linear-gradient(90deg, transparent, rgba(251, 146, 60, 0.25), transparent);
+}
+
+@media (max-width: 767px) {
+  .site-backdrop {
+    --backdrop-video: calc(var(--video-base) * 0.68);
+    --grid-opacity: 0.32;
+    --video-position: 56% 42%;
+  }
+
+  .site-backdrop[data-profile="calm"] {
+    --backdrop-video: calc(var(--video-base) * 0.8);
+    --video-position: 50% 46%;
+  }
+}
+
+/* Brightness lifts the scrims and the frame instead of washing the whole
+   layer with a filter that also bleaches the panels above it. */
+html[data-bright="on"] .site-backdrop {
+  --backdrop-video: var(--video-base);
+  --scrim-lift: 0.18;
+}
+
+/* Risk-aware ambience: the glow under the page warms with the verdict. */
+html[data-threat="critical"] .site-backdrop {
+  --ambient-color: rgb(248 113 113 / 0.11);
+}
+
+html[data-threat="high"] .site-backdrop {
+  --ambient-color: rgb(249 115 22 / 0.085);
+}
+
+html[data-threat="medium"] .site-backdrop {
+  --ambient-color: rgb(251 191 36 / 0.05);
+}
+
+html[data-threat="low"] .site-backdrop {
+  --ambient-color: rgb(74 222 128 / 0.03);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .site-backdrop {
+    --backdrop-video: 0;
+    --grid-opacity: 0;
+    --sweep-opacity: 0;
+  }
+
+  .site-backdrop-ambient {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   LIQUID GLASS SYSTEM
+   (used by the landing page)
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Geist font — loaded via <link> in the hero layout */
+
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.01);
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(4px) saturate(1.4);
+  -webkit-backdrop-filter: blur(4px) saturate(1.4);
+  border: none;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gradient-border via mask compositing */
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.45) 0%,
+      rgba(255, 255, 255, 0.15) 20%,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0) 60%,
+      rgba(255, 255, 255, 0.15) 80%,
+      rgba(255, 255, 255, 0.45) 100%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Subtle inner shimmer on hover */
+.liquid-glass:hover::before {
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.6) 0%,
+      rgba(255, 255, 255, 0.2) 20%,
+      rgba(255, 255, 255, 0.05) 40%,
+      rgba(255, 255, 255, 0.05) 60%,
+      rgba(255, 255, 255, 0.2) 80%,
+      rgba(255, 255, 255, 0.6) 100%);
+}
+/* ---------------------------------------------------------------------------
+   India scam heatmap (MapLibre). The map intentionally loads no tiles or
+   glyphs: boundaries and labels come from a local 228 KB GeoJSON file, so no
+   third-party map server sees the page visitor.
+--------------------------------------------------------------------------- */
+.fs-map-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2.5px 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(251, 146, 60, 0.28);
+  background: rgba(10, 7, 4, 0.74);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  color: #f0e1d2;
+  font-size: 9px;
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.fs-map-label-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: #fb923c;
+  box-shadow: 0 0 6px rgba(251, 146, 60, 0.9);
+}
+
+.fs-map-label-text {
+  color: #e7d6c6;
+}
+
+.fs-map-label strong {
+  color: #fdba74;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 640px) {
+  .fs-map-label-text {
+    display: none;
+  }
+}
+
+.fs-map-tooltip-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #faf1e8;
+}
+
+.fs-map-tooltip-value {
+  margin-top: 2px;
+  font-size: 10px;
+  color: #fdba74;
+  font-variant-numeric: tabular-nums;
+}
+
+.fs-map-tooltip-note {
+  margin-top: 1px;
+  font-size: 9px;
+  color: #a1907f;
+}
+
+.maplibregl-popup-content {
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(12, 9, 6, 0.92);
+  padding: 7px 10px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+}
+
+.maplibregl-popup-tip {
+  display: none;
+}
+
+.maplibregl-canvas:focus {
+  outline: none;
+}

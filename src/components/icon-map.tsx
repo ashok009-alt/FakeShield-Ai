@@ -1,0 +1,55 @@
+import {
+  BadgeCheck,
+  Briefcase,
+  CreditCard,
+  FileText,
+  Fish,
+  Heart,
+  Headphones,
+  Home,
+  KeyRound,
+  Landmark,
+  Link as LinkIcon,
+  Lock,
+  type LucideIcon,
+  MousePointerClick,
+  Package,
+  ShieldAlert,
+  ShoppingBag,
+  Siren,
+  Smartphone,
+  TrendingUp,
+  Trophy,
+  Wallet,
+  Zap,
+} from "lucide-react";
+
+const ICONS: Record<string, LucideIcon> = {
+  "badge-check": BadgeCheck,
+  briefcase: Briefcase,
+  "credit-card": CreditCard,
+  "file-text": FileText,
+  fish: Fish,
+  heart: Heart,
+  headphones: Headphones,
+  home: Home,
+  "key-round": KeyRound,
+  landmark: Landmark,
+  link: LinkIcon,
+  lock: Lock,
+  "mouse-pointer": MousePointerClick,
+  package: Package,
+  "shield-alert": ShieldAlert,
+  "shopping-bag": ShoppingBag,
+  siren: Siren,
+  smartphone: Smartphone,
+  "trending-up": TrendingUp,
+  trophy: Trophy,
+  wallet: Wallet,
+  zap: Zap,
+};
+
+export function DataIcon({ name, className }: { name: string; className?: string }) {
+  const Icon = ICONS[name] ?? ShieldAlert;
+  return <Icon className={className} aria-hidden="true" />;
+}
