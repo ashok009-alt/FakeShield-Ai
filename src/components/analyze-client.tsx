@@ -164,7 +164,7 @@ export function AnalyzeClient() {
   return (
     <div className="space-y-6">
       <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
-      <div className="relative overflow-hidden rounded-2xl p-5 sm:p-6 lg:sticky lg:top-32" style={{ border: "1px solid rgba(251,146,60,0.1)", background: "linear-gradient(145deg, rgba(28,20,12,0.97) 0%, rgba(15,9,6,0.99) 100%)", boxShadow: "0 0 60px -20px rgba(251,146,60,0.08), 0 24px 80px -40px rgba(0,0,0,0.95)" }}>
+      <div className="relative overflow-hidden rounded-2xl p-5 sm:p-6 lg:sticky lg:top-32" style={{ border: "1px solid rgba(255, 138, 102,0.1)", background: "linear-gradient(145deg, rgba(11, 40, 37,0.97) 0%, rgba(6, 28, 26,0.99) 100%)", boxShadow: "0 0 60px -20px rgba(255, 138, 102,0.08), 0 24px 80px -40px rgba(0,0,0,0.95)" }}>
         <div className="texture-noise pointer-events-none absolute inset-0 opacity-[0.04]" aria-hidden="true" />
         <HudCorners />
         <div className="relative flex items-center justify-between gap-3">

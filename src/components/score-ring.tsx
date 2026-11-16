@@ -7,10 +7,10 @@ import { cn } from "@/lib/utils";
 
 // Maps risk level to gradient stop colours
 const LEVEL_COLORS: Record<RiskLevel, { stroke: string; glow: string; text: string }> = {
-  Low: { stroke: "#22c55e", glow: "rgba(34,197,94,0.4)", text: "#4ade80" },
-  Medium: { stroke: "#f59e0b", glow: "rgba(245,158,11,0.4)", text: "#fbbf24" },
-  High: { stroke: "#f97316", glow: "rgba(249,115,22,0.4)", text: "#fb923c" },
-  Critical: { stroke: "#ef4444", glow: "rgba(239,68,68,0.4)", text: "#f87171" },
+  Low: { stroke: "#10b981", glow: "rgba(16, 185, 129, 0.35)", text: "#34d399" },
+  Medium: { stroke: "#f59e0b", glow: "rgba(245, 158, 11, 0.35)", text: "#fbbf24" },
+  High: { stroke: "#ea580c", glow: "rgba(234, 88, 12, 0.35)", text: "#fb923c" },
+  Critical: { stroke: "#ef4444", glow: "rgba(239, 68, 68, 0.35)", text: "#f87171" },
 };
 
 export function ScoreRing({

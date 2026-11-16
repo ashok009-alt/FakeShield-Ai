@@ -9,7 +9,7 @@
  * The full analyzer requires the server. The offline page runs a deliberately
  * small, local pattern check and says so.
  */
-const VERSION = "fakeshield-v1";
+const VERSION = "fakeshield-v2";
 const PRECACHE = [
   "/offline",
   "/icons/icon-192.png",

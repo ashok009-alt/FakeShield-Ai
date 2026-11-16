@@ -10,12 +10,12 @@ function page(title: string, message: string) {
     `<!doctype html><html lang="en"><head><meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>${title} · FakeShield AI</title></head>
-    <body style="margin:0;min-height:100vh;display:grid;place-items:center;background:#0c0906;color:#eadfd2;font-family:Segoe UI,Helvetica,Arial,sans-serif;padding:24px;">
+    <body style="margin:0;min-height:100vh;display:grid;place-items:center;background:#061c1a;color:#f1e7d7;font-family:Segoe UI,Helvetica,Arial,sans-serif;padding:24px;">
       <main style="max-width:440px;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:28px;background:rgba(255,255,255,.02);">
-        <p style="margin:0;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#fdba74;">FakeShield AI</p>
-        <h1 style="margin:8px 0 10px;font-size:20px;color:#fff7ed;">${title}</h1>
-        <p style="margin:0;font-size:13px;line-height:21px;color:#b8a694;">${message}</p>
-        <p style="margin:18px 0 0;"><a href="/trends" style="color:#fdba74;font-size:13px;">Back to trends</a></p>
+        <p style="margin:0;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#ffb59c;">FakeShield AI</p>
+        <h1 style="margin:8px 0 10px;font-size:20px;color:#fff5e8;">${title}</h1>
+        <p style="margin:0;font-size:13px;line-height:21px;color:#c3c7b8;">${message}</p>
+        <p style="margin:18px 0 0;"><a href="/trends" style="color:#ffb59c;font-size:13px;">Back to trends</a></p>
       </main>
     </body></html>`,
     {

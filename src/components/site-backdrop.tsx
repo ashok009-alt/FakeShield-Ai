@@ -1,80 +1,39 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { VideoBackground } from "@/components/video-background";
 
-type BackdropProfile = "insight" | "focus" | "learn" | "calm" | "none";
-
-/**
- * Pick the ambient register for the route.
- *
- * - insight — intelligence surfaces (trends, community, history, channels):
- *   the footage stays present, because these pages are about scanning.
- * - focus   — analyzers: the backdrop steps back so forms and verdict cards
- *   carry the contrast.
- * - learn   — guides and quizzes: quieter still, less motion.
- * - calm    — the family checker: a near-static poster for low-end phones.
- * - none    — the landing page paints its own hero, and /offline is standalone.
- */
-function profileFor(pathname: string): BackdropProfile {
-  if (pathname === "/" || pathname === "/offline") return "none";
-  if (pathname.startsWith("/protect")) return "calm";
-  if (/^\/(analyze|image|forward|link|email|language|platform)(\/|$)/.test(pathname)) {
-    return "focus";
-  }
-  if (/^\/(learn|quiz|about|404)(\/|$)/.test(pathname)) return "learn";
-  return "insight";
-}
-
-/**
- * Fixed, site-wide backdrop.
- *
- * Sits behind every route (z-0) while content renders in a z-10 layer. The
- * tone is adaptive rather than fixed:
- *
- * - route profile changes footage opacity, scrim strength, glow and motion;
- * - display brightness ("Brighten the interface") lifts the scrims instead of
- *   applying a blunt brightness filter;
- * - a completed analysis stamps `data-threat` on <html>, so the ember glow
- *   warms slightly for High/Critical results and cools for Low results;
- * - small screens, reduced motion and reduced transparency lower the cost.
- *
- * All of the tuning lives in CSS custom properties (see globals.css), so the
- * layer never re-renders the video element when only the profile changes.
- */
 export function SiteBackdrop() {
   const pathname = usePathname();
-  const profile = profileFor(pathname);
-  if (profile === "none") return null;
+  if (pathname === "/offline") return null;
 
   return (
     <div
       className="site-backdrop pointer-events-none fixed inset-0 z-0 overflow-hidden"
-      data-profile={profile}
       aria-hidden="true"
     >
-      <VideoBackground
-        opacity="var(--backdrop-video)"
-        still={profile === "calm"}
-        className="fs-backdrop-video"
+      {/* Top subtle blue ambient glow */}
+      <div
+        className="absolute -top-40 left-1/2 -translate-x-1/2 h-[500px] w-[1000px] rounded-full blur-[120px] opacity-25"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(37, 99, 235, 0.4) 0%, rgba(14, 165, 233, 0.15) 40%, transparent 70%)",
+        }}
       />
 
-      {/* Warm bloom behind the header, mirrored faintly under the footer */}
-      <div className="site-backdrop-glow absolute inset-0" />
+      {/* Subtle bottom-right accent glow */}
+      <div
+        className="absolute -bottom-40 right-0 h-[400px] w-[600px] rounded-full blur-[140px] opacity-15"
+        style={{
+          background:
+            "radial-gradient(circle at center, rgba(16, 185, 129, 0.25) 0%, transparent 60%)",
+        }}
+      />
 
-      {/* Legibility scrim: keeps the ember tone and fades the footage at the edges */}
-      <div className="site-backdrop-scrim absolute inset-0" />
-      <div className="site-backdrop-vignette absolute inset-0" />
-      <div className="site-backdrop-horizon absolute inset-x-0 bottom-0 h-1/3" />
+      {/* Precision Micro Dot Matrix */}
+      <div className="absolute inset-0 dot-matrix opacity-40" />
 
-      {/* Risk-aware tint — set by result panels through html[data-threat] */}
-      <div className="site-backdrop-ambient absolute inset-0" />
-
-      {/* Engineering grid + grain + slow scan sweep: the console's material */}
-      <div className="site-backdrop-grid texture-grid absolute inset-0" />
-      <div className="site-backdrop-noise texture-noise absolute inset-0" />
-      <div className="site-backdrop-sweep scan-sweep" />
-      <div className="site-backdrop-hairline absolute inset-x-0 top-0 h-px" />
+      {/* Top Hairline border */}
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
     </div>
   );
 }

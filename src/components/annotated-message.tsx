@@ -14,11 +14,11 @@ const SEVERITY_RANK: Record<Severity, number> = {
 
 const MARK_CLASS: Record<Severity, string> = {
   critical:
-    "bg-red-500/25 text-red-50 shadow-[inset_0_-2px_0_rgba(248,113,113,0.7)]",
-  high: "bg-orange-500/25 text-orange-50 shadow-[inset_0_-2px_0_rgba(251,146,60,0.7)]",
+    "bg-red-500/25 text-red-50 shadow-[inset_0_-2px_0_rgba(255, 139, 122,0.7)]",
+  high: "bg-orange-500/25 text-orange-50 shadow-[inset_0_-2px_0_rgba(255, 138, 102,0.7)]",
   medium:
-    "bg-amber-500/20 text-amber-50 shadow-[inset_0_-2px_0_rgba(251,191,36,0.65)]",
-  low: "bg-yellow-500/15 text-yellow-50 shadow-[inset_0_-2px_0_rgba(250,204,21,0.5)]",
+    "bg-amber-500/20 text-amber-50 shadow-[inset_0_-2px_0_rgba(230, 198, 144,0.65)]",
+  low: "bg-yellow-500/15 text-yellow-50 shadow-[inset_0_-2px_0_rgba(230, 198, 144,0.5)]",
 };
 
 interface Segment {

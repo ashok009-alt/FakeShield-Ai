@@ -148,8 +148,8 @@ export default function ChannelsPage() {
               Rendered from this sample with no API keys and no network calls:
             </p>
 
-            <div className="mt-3 rounded-xl border border-white/[0.06] bg-[#0b0805] p-3">
-              <p className="rounded-lg rounded-br-sm bg-[#221a13] px-3 py-2 text-[11px] leading-5 text-stone-300">
+            <div className="mt-3 rounded-xl border border-white/[0.06] bg-[#071e1c] p-3">
+              <p className="rounded-lg rounded-br-sm bg-[#0e322e] px-3 py-2 text-[11px] leading-5 text-stone-300">
                 {SAMPLE}
               </p>
               <pre className="mt-2 whitespace-pre-wrap rounded-lg rounded-bl-sm bg-orange-500/[0.08] px-3 py-2.5 font-sans text-[10.5px] leading-[1.55] text-stone-200">

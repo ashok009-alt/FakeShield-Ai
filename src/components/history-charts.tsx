@@ -16,19 +16,19 @@ import type { StatsResponse } from "@/lib/serialize";
 import { RISK_META } from "@/lib/constants";
 
 const RISK_COLORS: Record<string, string> = {
-  Low: "#34d399",
-  Medium: "#fbbf24",
-  High: "#fb923c",
-  Critical: "#f87171",
+  Low: "#10b981",
+  Medium: "#f59e0b",
+  High: "#ea580c",
+  Critical: "#ef4444",
 };
 
 const tooltipStyle = {
-  backgroundColor: "#150e08",
-  border: "1px solid #342416",
-  borderRadius: 10,
+  backgroundColor: "#0f172a",
+  border: "1px solid #1e293b",
+  borderRadius: 12,
   fontSize: 12,
-  color: "#eadfd2",
-  boxShadow: "0 12px 30px rgba(0,0,0,0.5)",
+  color: "#f8fafc",
+  boxShadow: "0 12px 30px rgba(0,0,0,0.6)",
 } as const;
 
 export function ScanVolumeChart({ stats }: { stats: StatsResponse }) {
@@ -38,28 +38,28 @@ export function ScanVolumeChart({ stats }: { stats: StatsResponse }) {
     <div className="h-56 w-full">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data} margin={{ top: 8, right: 8, bottom: 0, left: 0 }}>
-          <CartesianGrid vertical={false} stroke="#2c1f14" strokeDasharray="3 3" />
+          <CartesianGrid vertical={false} stroke="#173d37" strokeDasharray="3 3" />
           <XAxis
             dataKey="label"
             tickLine={false}
             axisLine={false}
-            tick={{ fill: "#8a7461", fontSize: 11 }}
+            tick={{ fill: "#8fa39a", fontSize: 11 }}
           />
           <YAxis
             allowDecimals={false}
             tickLine={false}
             axisLine={false}
-            tick={{ fill: "#8a7461", fontSize: 11 }}
+            tick={{ fill: "#8fa39a", fontSize: 11 }}
             width={34}
           />
           <Tooltip
-            cursor={{ fill: "rgba(251,146,60,0.06)" }}
+            cursor={{ fill: "rgba(59, 130, 246, 0.08)" }}
             contentStyle={tooltipStyle}
-            labelStyle={{ color: "#b8a694", fontSize: 11 }}
+            labelStyle={{ color: "#94a3b8", fontSize: 11 }}
             formatter={(value: number) => [`${value} scans`, ""]}
             labelFormatter={(label) => `Day: ${label}`}
           />
-          <Bar dataKey="scans" fill="#fb923c" radius={[4, 4, 0, 0]} maxBarSize={38} />
+          <Bar dataKey="scans" fill="#3b82f6" radius={[6, 6, 0, 0]} maxBarSize={38} />
         </BarChart>
       </ResponsiveContainer>
     </div>
@@ -92,7 +92,7 @@ export function RiskMixChart({ stats }: { stats: StatsResponse }) {
               innerRadius="58%"
               outerRadius="88%"
               paddingAngle={3}
-              stroke="#120c08"
+              stroke="#071f1d"
               strokeWidth={2}
             >
               {data.map((entry) => (

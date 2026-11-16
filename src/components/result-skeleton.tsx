@@ -7,8 +7,8 @@ export function ResultSkeleton() {
       <div
         className="rounded-2xl p-6 overflow-hidden"
         style={{
-          border: "1px solid rgba(251,146,60,0.12)",
-          background: "linear-gradient(145deg, rgba(28,20,12,0.97) 0%, rgba(15,9,6,0.99) 100%)",
+          border: "1px solid rgba(255, 138, 102,0.12)",
+          background: "linear-gradient(145deg, rgba(11, 40, 37,0.97) 0%, rgba(6, 28, 26,0.99) 100%)",
         }}
       >
         {/* Header bar */}
@@ -30,7 +30,7 @@ export function ResultSkeleton() {
           <div className="relative size-[148px] shrink-0">
             <div
               className="absolute inset-0 rounded-full animate-pulse"
-              style={{ background: "rgba(251,146,60,0.06)", border: "8px solid rgba(251,146,60,0.08)" }}
+              style={{ background: "rgba(255, 138, 102,0.06)", border: "8px solid rgba(255, 138, 102,0.08)" }}
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-1">
               <Shield className="size-8 text-orange-500/30 animate-pulse" />
@@ -53,8 +53,8 @@ export function ResultSkeleton() {
       <div
         className="rounded-2xl p-6"
         style={{
-          border: "1px solid rgba(50,36,24,0.9)",
-          background: "linear-gradient(145deg, rgba(28,20,12,0.95) 0%, rgba(15,9,6,0.98) 100%)",
+          border: "1px solid rgba(15, 55, 50,0.9)",
+          background: "linear-gradient(145deg, rgba(11, 40, 37,0.95) 0%, rgba(6, 28, 26,0.98) 100%)",
         }}
       >
         <Skeleton className="h-4 w-32 mb-5" />

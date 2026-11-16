@@ -121,7 +121,7 @@ export function ResultPanel({
       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
       className="space-y-4"
     >
-      <div className="relative overflow-hidden rounded-2xl" style={{ border: "1px solid rgba(251,146,60,0.12)", background: "linear-gradient(145deg, rgba(28,20,12,0.97) 0%, rgba(15,9,6,0.99) 100%)", boxShadow: "0 0 60px -20px rgba(251,146,60,0.12), 0 24px 80px -40px rgba(0,0,0,0.95)" }}>
+      <div className="relative overflow-hidden rounded-2xl" style={{ border: "1px solid rgba(255, 138, 102,0.12)", background: "linear-gradient(145deg, rgba(11, 40, 37,0.97) 0%, rgba(6, 28, 26,0.99) 100%)", boxShadow: "0 0 60px -20px rgba(255, 138, 102,0.12), 0 24px 80px -40px rgba(0,0,0,0.95)" }}>
         <div className="texture-noise pointer-events-none absolute inset-0 z-0 opacity-[0.04]" aria-hidden="true" />
         <HudCorners className="z-10" />
         <div className="relative flex flex-wrap items-center justify-between gap-2 border-b border-white/[0.07] px-5 py-3.5">
@@ -260,7 +260,7 @@ export function ResultPanel({
       {!compact ? <BreachPanel breach={result.breach} /> : null}
 
       {result.signals.length > 0 ? (
-        <div className="rounded-2xl p-5 sm:p-6" style={{ border: "1px solid rgba(50,36,24,0.9)", background: "linear-gradient(145deg, rgba(28,20,12,0.95) 0%, rgba(15,9,6,0.98) 100%)" }}>
+        <div className="rounded-2xl p-5 sm:p-6" style={{ border: "1px solid rgba(15, 55, 50,0.9)", background: "linear-gradient(145deg, rgba(11, 40, 37,0.95) 0%, rgba(6, 28, 26,0.98) 100%)" }}>
           <div className="mb-4 flex items-center justify-between">
             <h3 className="text-sm font-bold text-white">Warning signs detected</h3>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-red-500/20 bg-red-500/10 px-2.5 py-1 text-[11px] font-bold text-red-300">
@@ -274,7 +274,7 @@ export function ResultPanel({
           />
         </div>
       ) : (
-        <div className="flex items-start gap-3 rounded-2xl p-5 sm:p-6" style={{ border: "1px solid rgba(34,197,94,0.15)", background: "rgba(34,197,94,0.04)" }}>
+        <div className="flex items-start gap-3 rounded-2xl p-5 sm:p-6" style={{ border: "1px solid rgba(34, 169, 138,0.15)", background: "rgba(34, 169, 138,0.04)" }}>
           <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-emerald-400" />
           <div>
             <h3 className="text-sm font-bold text-white">No strong warning signs found</h3>
@@ -288,7 +288,7 @@ export function ResultPanel({
       )}
 
       {!compact && result.recommendations.length > 0 ? (
-        <div className="rounded-2xl p-5 sm:p-6" style={{ border: "1px solid rgba(251,146,60,0.12)", background: "rgba(251,146,60,0.04)" }}>
+        <div className="rounded-2xl p-5 sm:p-6" style={{ border: "1px solid rgba(255, 138, 102,0.12)", background: "rgba(255, 138, 102,0.04)" }}>
           <h3 className="flex items-center gap-2 text-sm font-bold text-white">
             <span className="grid size-5 place-items-center rounded-full bg-orange-500/15 border border-orange-500/25">
               <span className="size-1.5 rounded-full bg-orange-400" />
@@ -310,7 +310,7 @@ export function ResultPanel({
 
       {!compact ? (
         <>
-          <div className="rounded-2xl p-5 sm:p-6" style={{ border: "1px solid rgba(50,36,24,0.9)", background: "linear-gradient(145deg, rgba(28,20,12,0.95) 0%, rgba(15,9,6,0.98) 100%)" }}>
+          <div className="rounded-2xl p-5 sm:p-6" style={{ border: "1px solid rgba(15, 55, 50,0.9)", background: "linear-gradient(145deg, rgba(11, 40, 37,0.95) 0%, rgba(6, 28, 26,0.98) 100%)" }}>
             <h3 className="mb-4 text-sm font-bold text-white">Extracted details</h3>
             <ExtractedPanel extracted={result.extracted} />
             {Object.values(result.extracted).every((value) => value.length === 0) ? (

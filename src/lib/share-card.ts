@@ -1,10 +1,10 @@
 import type { AnalysisResult, RiskLevel } from "./analysis/types";
 
 const PALETTE: Record<RiskLevel, { accent: string; soft: string; label: string }> = {
-  Low: { accent: "#34d399", soft: "rgba(52,211,153,0.18)", label: "LOW RISK" },
-  Medium: { accent: "#fbbf24", soft: "rgba(251,191,36,0.2)", label: "MEDIUM RISK" },
-  High: { accent: "#fb923c", soft: "rgba(251,146,60,0.22)", label: "HIGH RISK" },
-  Critical: { accent: "#f87171", soft: "rgba(248,113,113,0.22)", label: "CRITICAL RISK" },
+  Low: { accent: "#3fc0a3", soft: "rgba(79, 192, 161,0.18)", label: "LOW RISK" },
+  Medium: { accent: "#e6c690", soft: "rgba(230, 198, 144,0.2)", label: "MEDIUM RISK" },
+  High: { accent: "#ff8a66", soft: "rgba(255, 138, 102,0.22)", label: "HIGH RISK" },
+  Critical: { accent: "#ff8b7a", soft: "rgba(255, 139, 122,0.22)", label: "CRITICAL RISK" },
 };
 
 const W = 1080;
@@ -35,16 +35,16 @@ export async function renderShareCard(
 
   // Background
   const bg = ctx.createLinearGradient(0, 0, W * 0.4, H);
-  bg.addColorStop(0, "#120b06");
-  bg.addColorStop(0.55, "#0b0704");
-  bg.addColorStop(1, "#1a0f08");
+  bg.addColorStop(0, "#071f1d");
+  bg.addColorStop(0.55, "#061d1b");
+  bg.addColorStop(1, "#0a2320");
   ctx.fillStyle = bg;
   ctx.fillRect(0, 0, W, H);
 
   // Accent glow behind the score
   const glow = ctx.createRadialGradient(W / 2, 470, 40, W / 2, 470, 520);
   glow.addColorStop(0, palette.soft);
-  glow.addColorStop(0.6, "rgba(251,146,60,0.04)");
+  glow.addColorStop(0.6, "rgba(255, 138, 102,0.04)");
   glow.addColorStop(1, "rgba(0,0,0,0)");
   ctx.fillStyle = glow;
   ctx.fillRect(0, 0, W, H);
@@ -64,23 +64,23 @@ export async function renderShareCard(
   }
 
   // Frame
-  ctx.strokeStyle = "rgba(251,146,60,0.18)";
+  ctx.strokeStyle = "rgba(255, 138, 102,0.18)";
   ctx.lineWidth = 2;
   roundRect(ctx, M / 2, M / 2, W - M, H - M, 40, false, true);
 
   // Header
   drawShield(ctx, M + 6, M + 4, 46, palette.accent);
-  ctx.fillStyle = "#f3e8dc";
+  ctx.fillStyle = "#f4ecdf";
   ctx.font = "700 26px Inter, system-ui, sans-serif";
   ctx.textAlign = "left";
   ctx.textBaseline = "middle";
   spacedText(ctx, "FAKESHIELD AI", M + 68, M + 28, 5);
-  ctx.fillStyle = "#8a7461";
+  ctx.fillStyle = "#8fa39a";
   ctx.font = "500 22px Inter, system-ui, sans-serif";
   spacedText(ctx, "THREAT CARD", M + 68, M + 58, 4);
 
   ctx.textAlign = "right";
-  ctx.fillStyle = "#8a7461";
+  ctx.fillStyle = "#8fa39a";
   ctx.font = "500 22px Inter, system-ui, sans-serif";
   ctx.fillText(formatCardDate(generatedAt), W - M - 4, M + 30);
 
@@ -113,7 +113,7 @@ export async function renderShareCard(
   ctx.fillStyle = "#ffffff";
   ctx.font = "700 210px Inter, system-ui, sans-serif";
   ctx.fillText(String(result.riskScore), cx, cy + 6);
-  ctx.fillStyle = "#8a7461";
+  ctx.fillStyle = "#8fa39a";
   ctx.font = "600 24px Inter, system-ui, sans-serif";
   spacedText(ctx, "RISK SCORE / 100", cx, cy + 158, 5);
 
@@ -122,7 +122,7 @@ export async function renderShareCard(
   spacedText(ctx, palette.label, cx, cy + 272, 6);
 
   // Summary
-  ctx.fillStyle = "#e7d8c8";
+  ctx.fillStyle = "#e8dcc8";
   ctx.font = "400 31px Inter, system-ui, sans-serif";
   const summary = wrapText(ctx, result.summary, W - 2 * M - 40, 3);
   let y = 900;
@@ -149,13 +149,13 @@ export async function renderShareCard(
       ctx.arc(M + 26, y + 10, 6, 0, Math.PI * 2);
       ctx.fill();
 
-      ctx.fillStyle = "#e7d8c8";
+      ctx.fillStyle = "#e8dcc8";
       ctx.font = "500 27px Inter, system-ui, sans-serif";
       const label = truncateToWidth(ctx, signal.label, 640);
       ctx.fillText(label, M + 46, y + 10);
 
       ctx.textAlign = "right";
-      ctx.fillStyle = "#8a7461";
+      ctx.fillStyle = "#8fa39a";
       ctx.font = "500 20px Inter, system-ui, sans-serif";
       ctx.fillText(signal.severity.toUpperCase(), W - M - 24, y + 10);
       y += 52;
@@ -164,14 +164,14 @@ export async function renderShareCard(
 
   // Footer
   ctx.textAlign = "center";
-  ctx.fillStyle = "#8a7461";
+  ctx.fillStyle = "#8fa39a";
   ctx.font = "500 21px Inter, system-ui, sans-serif";
   ctx.fillText(
     "FakeShield AI provides risk guidance, not a final security verdict.",
     cx,
     H - M - 58
   );
-  ctx.fillStyle = "#5f4f40";
+  ctx.fillStyle = "#5a6a61";
   ctx.font = "500 19px Inter, system-ui, sans-serif";
   ctx.fillText(
     `${result.inputType.toUpperCase()} · ${Math.round(result.confidence * 100)}% confidence · ${host}`,
@@ -201,7 +201,7 @@ function drawShield(ctx: CanvasRenderingContext2D, x: number, y: number, size: n
   ctx.strokeStyle = color;
   ctx.lineWidth = 3;
   ctx.stroke();
-  ctx.fillStyle = "rgba(251,146,60,0.1)";
+  ctx.fillStyle = "rgba(255, 138, 102,0.1)";
   ctx.fill();
   ctx.beginPath();
   ctx.moveTo(size * 0.32, size * 0.5);

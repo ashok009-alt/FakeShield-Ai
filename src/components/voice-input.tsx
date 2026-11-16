@@ -164,7 +164,7 @@ export function VoiceInput({ onAppend }: { onAppend: (text: string) => void }) {
         className="h-7 rounded-full border border-white/[0.08] bg-white/[0.03] px-2 text-[10.5px] text-stone-300 outline-none focus-visible:ring-2 focus-visible:ring-orange-400/50 disabled:opacity-60"
       >
         {LANGUAGES.map((language) => (
-          <option key={language.code} value={language.code} className="bg-[#150e08]">
+          <option key={language.code} value={language.code} className="bg-[#0a2421]">
             {language.label}
           </option>
         ))}

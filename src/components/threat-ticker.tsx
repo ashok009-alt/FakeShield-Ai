@@ -40,16 +40,16 @@ export function ThreatTicker({ variant = "site" }: { variant?: "site" | "hero" }
   return (
     <div
       className={cn(
-        "relative z-30 border-b border-white/[0.07] font-mono text-[9.5px] uppercase tracking-[0.14em]",
+        "relative z-30 border-b border-slate-800/80 font-mono text-[10px] uppercase tracking-[0.14em]",
         variant === "hero"
-          ? "bg-black/55 backdrop-blur-md"
-          : "bg-[#0b0704]"
+          ? "bg-slate-950/80 backdrop-blur-md"
+          : "bg-slate-950/90"
       )}
     >
       <div className="flex h-8 items-center">
-        <span className="relative z-10 flex h-full shrink-0 items-center gap-1.5 border-r border-white/[0.08] bg-[#0b0704]/85 px-3 text-[9px] font-black tracking-[0.18em] text-orange-300">
+        <span className="relative z-10 flex h-full shrink-0 items-center gap-1.5 border-r border-slate-800 bg-slate-950 px-3 text-[9.5px] font-bold tracking-[0.18em] text-blue-400">
           <span className="live-dot" />
-          Live
+          Live Radar
         </span>
 
         <div className="ticker-viewport relative flex-1 overflow-hidden" aria-hidden="true">
@@ -59,14 +59,14 @@ export function ThreatTicker({ variant = "site" }: { variant?: "site" | "hero" }
           </div>
         </div>
 
-        <span className="hidden h-full shrink-0 items-center border-l border-white/[0.08] px-3 text-[8.5px] tracking-[0.16em] text-stone-600 sm:flex">
-          Simulated feed
+        <span className="hidden h-full shrink-0 items-center border-l border-slate-800 px-3 text-[9px] tracking-[0.14em] text-slate-500 sm:flex">
+          Simulated Feed
         </span>
         <Link
-          href="/demo"
-          className="hidden h-full shrink-0 items-center gap-1 border-l border-white/[0.08] px-3 text-[9px] font-bold tracking-[0.12em] text-orange-300 transition-colors hover:text-orange-200 md:flex"
+          href="/trends"
+          className="hidden h-full shrink-0 items-center gap-1 border-l border-slate-800 px-3 text-[9.5px] font-bold tracking-[0.12em] text-blue-400 transition-colors hover:text-blue-300 md:flex"
         >
-          Watch demo
+          View Telemetry
           <ArrowRight className="size-3" />
         </Link>
       </div>

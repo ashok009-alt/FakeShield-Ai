@@ -16,7 +16,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { ScoreRing } from "@/components/score-ring";
 import { ScoreExplainDialog } from "@/components/score-explain-dialog";
 import { RiskBadge } from "@/components/risk-badge";
-import { HudCorners } from "@/components/hud-corners";
 import { Skeleton } from "@/components/ui/progress";
 
 const QUICK_SAMPLES = ["kyc-block", "delivery-fee", "lottery"];
@@ -97,25 +96,18 @@ export function HomeAnalyzer() {
 
   return (
     <div
-      className="relative overflow-hidden rounded-sm p-5 sm:p-6"
-      style={{
-        border: "1px solid rgba(249,115,22,0.15)",
-        background: "linear-gradient(160deg, #201509 0%, #0f0906 100%)",
-        boxShadow: "0 0 0 1px rgba(249,115,22,0.04) inset, 0 20px 60px -20px rgba(0,0,0,0.9)",
-      }}
+      className="relative overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-900/95 p-5 sm:p-6 shadow-2xl shadow-black/60 backdrop-blur-xl"
     >
-      <div className="texture-noise pointer-events-none absolute inset-0 opacity-[0.045]" aria-hidden="true" />
-      <HudCorners />
       {loading ? <span className="scan-line" aria-hidden="true" /> : null}
 
       <div className="relative flex items-center justify-between gap-3">
-        <div className="flex items-center gap-2.5 text-[13px] font-bold text-white">
-          <ScanText className="size-4 text-amber-400" />
-          Live threat scanner
+        <div className="flex items-center gap-2.5 text-[14px] font-semibold text-slate-100">
+          <ScanText className="size-4 text-blue-400" />
+          Live Threat Scanner
         </div>
-        <span className="inline-flex items-center gap-1.5 rounded-sm border border-[#3a2a1c] bg-[#171009] px-2.5 py-1 text-[10px] font-mono font-bold tracking-wider text-stone-500">
+        <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 text-[10px] font-mono font-semibold tracking-wider text-emerald-400">
           <span className="live-dot" />
-          READY
+          ACTIVE
         </span>
       </div>
 
@@ -168,10 +160,10 @@ export function HomeAnalyzer() {
                 type="button"
                 onClick={() => applySample(id)}
                 className={cn(
-                  "rounded-full border px-2.5 py-1 text-[11px] transition-colors",
+                  "rounded-lg border px-3 py-1 text-xs font-medium transition-colors cursor-pointer",
                   activeSample === id
-                    ? "border-orange-500/40 bg-orange-500/10 text-orange-300 font-semibold"
-                    : "border-white/[0.08] bg-white/[0.02] text-stone-400 hover:border-white/[0.18] hover:text-stone-200"
+                    ? "border-blue-500/50 bg-blue-500/15 text-blue-300"
+                    : "border-slate-800 bg-slate-800/50 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                 )}
               >
                 {sample.label}
@@ -184,7 +176,7 @@ export function HomeAnalyzer() {
               const pool = messageSamples.filter((sample) => sample.id !== activeSample);
               applySample(pool[Math.floor(Math.random() * pool.length)]?.id ?? "kyc-block");
             }}
-            className="rounded-full border border-white/[0.08] bg-white/[0.02] px-2.5 py-1 text-[11px] text-stone-400 transition-colors hover:border-white/[0.18] hover:text-stone-200"
+            className="rounded-lg border border-slate-800 bg-slate-800/40 px-3 py-1 text-xs text-slate-400 transition-colors hover:border-slate-700 hover:text-slate-200 cursor-pointer"
           >
             Random
           </button>

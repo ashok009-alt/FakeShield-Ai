@@ -166,7 +166,7 @@ export function DemoClient() {
           Watch a scam get{" "}
           <span
             style={{
-              background: "linear-gradient(135deg, #fb923c 0%, #b45309 100%)",
+              background: "linear-gradient(135deg, #ff8a66 0%, #a4743a 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -186,10 +186,10 @@ export function DemoClient() {
         <div
           className="relative overflow-hidden rounded-2xl"
           style={{
-            border: "1px solid rgba(251,146,60,0.12)",
+            border: "1px solid rgba(255, 138, 102,0.12)",
             background:
-              "linear-gradient(145deg, rgba(28,20,12,0.97) 0%, rgba(15,9,6,0.99) 100%)",
-            boxShadow: "0 0 60px -24px rgba(251,146,60,0.15), 0 24px 80px -40px rgba(0,0,0,0.95)",
+              "linear-gradient(145deg, rgba(11, 40, 37,0.97) 0%, rgba(6, 28, 26,0.99) 100%)",
+            boxShadow: "0 0 60px -24px rgba(255, 138, 102,0.15), 0 24px 80px -40px rgba(0,0,0,0.95)",
           }}
         >
           <div className="texture-noise pointer-events-none absolute inset-0 opacity-[0.04]" aria-hidden="true" />
@@ -230,9 +230,9 @@ export function DemoClient() {
             phase === "done" && "ring-1 ring-red-500/20"
           )}
           style={{
-            border: "1px solid rgba(50,36,24,0.9)",
+            border: "1px solid rgba(15, 55, 50,0.9)",
             background:
-              "linear-gradient(145deg, rgba(28,20,12,0.95) 0%, rgba(15,9,6,0.98) 100%)",
+              "linear-gradient(145deg, rgba(11, 40, 37,0.95) 0%, rgba(6, 28, 26,0.98) 100%)",
           }}
           aria-live="polite"
         >
@@ -450,9 +450,9 @@ export function DemoClient() {
             <div
               className="rounded-2xl p-5 sm:p-6"
               style={{
-                border: "1px solid rgba(50,36,24,0.9)",
+                border: "1px solid rgba(15, 55, 50,0.9)",
                 background:
-                  "linear-gradient(145deg, rgba(28,20,12,0.95) 0%, rgba(15,9,6,0.98) 100%)",
+                  "linear-gradient(145deg, rgba(11, 40, 37,0.95) 0%, rgba(6, 28, 26,0.98) 100%)",
               }}
             >
               <div className="mb-4 flex items-center justify-between">
@@ -468,8 +468,8 @@ export function DemoClient() {
               <div
                 className="rounded-2xl p-5 sm:p-6"
                 style={{
-                  border: "1px solid rgba(251,146,60,0.12)",
-                  background: "rgba(251,146,60,0.04)",
+                  border: "1px solid rgba(255, 138, 102,0.12)",
+                  background: "rgba(255, 138, 102,0.04)",
                 }}
               >
                 <h2 className="flex items-center gap-2 text-sm font-bold text-white">

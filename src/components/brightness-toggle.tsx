@@ -9,7 +9,7 @@ export const BRIGHT_STORAGE_KEY = "fakeshield.bright.v1";
 /**
  * Display brightness control.
  *
- * The site ships in a dark ember theme, so this is a luminance toggle rather
+ * The site ships in a dark teal theme, so this is a luminance toggle rather
  * than a full light theme: "bright" lifts the whole interface with a GPU
  * brightness filter (and a lighter backdrop). The choice is persisted and
  * applied before hydration by a tiny inline script in the root layout.
@@ -52,7 +52,7 @@ export function BrightnessToggle({
         "grid size-9 place-items-center rounded-lg border transition-colors",
         variant === "hero"
           ? "liquid-glass text-white/80 hover:text-white"
-          : "border-[#3a2a1c] bg-[#171009] text-stone-400 hover:border-stone-600 hover:text-white",
+          : "border-border bg-card text-stone-400 hover:border-stone-600 hover:text-white",
         className
       )}
     >

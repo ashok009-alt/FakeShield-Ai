@@ -39,7 +39,7 @@ const SelectContent = React.forwardRef<
       position={position}
       sideOffset={6}
       className={cn(
-        "relative z-50 max-h-80 min-w-[9rem] overflow-hidden rounded-xl border border-border bg-[#150e08] text-foreground shadow-2xl shadow-black/60",
+        "relative z-50 max-h-80 min-w-[9rem] overflow-hidden rounded-xl border border-border bg-[#0a2421] text-foreground shadow-2xl shadow-black/60",
         position === "popper" && "w-[var(--radix-select-trigger-width)]",
         className
       )}

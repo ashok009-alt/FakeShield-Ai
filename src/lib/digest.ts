@@ -76,11 +76,11 @@ export function buildWeeklyDigest(): DigestEmail {
     .map(
       (alert) => `
       <tr>
-        <td style="padding:10px 0;border-bottom:1px solid #eee7de;">
-          <p style="margin:0;font-size:14px;font-weight:600;color:#2a1d12;">${escapeHtml(
+        <td style="padding:10px 0;border-bottom:1px solid #f4ecdf;">
+          <p style="margin:0;font-size:14px;font-weight:600;color:#103b35;">${escapeHtml(
             alert.title
-          )} <span style="color:#c2410c;">+${alert.change}%</span></p>
-          <p style="margin:3px 0 0;font-size:12px;line-height:18px;color:#6b5b4c;">${escapeHtml(
+          )} <span style="color:#c94127;">+${alert.change}%</span></p>
+          <p style="margin:3px 0 0;font-size:12px;line-height:18px;color:#6f8177;">${escapeHtml(
             alert.detail
           )}</p>
         </td>
@@ -92,12 +92,12 @@ export function buildWeeklyDigest(): DigestEmail {
     .map(
       (category) => `
       <tr>
-        <td style="padding:7px 0;font-size:13px;color:#3b2b1d;">${escapeHtml(category.name)}</td>
-        <td style="padding:7px 0;font-size:13px;color:#6b5b4c;text-align:right;font-variant-numeric:tabular-nums;">${category.reports.toLocaleString(
+        <td style="padding:7px 0;font-size:13px;color:#1b443e;">${escapeHtml(category.name)}</td>
+        <td style="padding:7px 0;font-size:13px;color:#6f8177;text-align:right;font-variant-numeric:tabular-nums;">${category.reports.toLocaleString(
           "en-IN"
         )}</td>
         <td style="padding:7px 0 7px 16px;font-size:12px;text-align:right;color:${
-          category.change >= 0 ? "#c2410c" : "#047857"
+          category.change >= 0 ? "#c94127" : "#146a5a"
         };">${category.change >= 0 ? "+" : ""}${category.change}%</td>
       </tr>`
     )
@@ -105,18 +105,18 @@ export function buildWeeklyDigest(): DigestEmail {
 
   const html = `<!doctype html>
 <html lang="en">
-  <body style="margin:0;padding:24px 12px;background:#f6f1ea;font-family:Segoe UI,Helvetica,Arial,sans-serif;">
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;margin:0 auto;background:#fffdf9;border:1px solid #efe6da;border-radius:14px;overflow:hidden;">
+  <body style="margin:0;padding:24px 12px;background:#f1eadf;font-family:Segoe UI,Helvetica,Arial,sans-serif;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;margin:0 auto;background:#fffaf0;border:1px solid #efe8dc;border-radius:14px;overflow:hidden;">
       <tr>
-        <td style="background:#1a130d;padding:22px 24px;">
-          <p style="margin:0;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#fdba74;">FakeShield AI</p>
-          <h1 style="margin:6px 0 0;font-size:21px;line-height:28px;color:#fff7ed;">Weekly threat report</h1>
-          <p style="margin:4px 0 0;font-size:12px;color:#c9b6a4;">${escapeHtml(week)}</p>
+        <td style="background:#0a2320;padding:22px 24px;">
+          <p style="margin:0;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#ffb59c;">FakeShield AI</p>
+          <h1 style="margin:6px 0 0;font-size:21px;line-height:28px;color:#fff5e8;">Weekly threat report</h1>
+          <p style="margin:4px 0 0;font-size:12px;color:#cbc0ab;">${escapeHtml(week)}</p>
         </td>
       </tr>
       <tr>
         <td style="padding:22px 24px 8px;">
-          <p style="margin:0;font-size:13px;line-height:21px;color:#3b2b1d;">
+          <p style="margin:0;font-size:13px;line-height:21px;color:#1b443e;">
             <strong>${total}</strong> reports were analysed this week. <strong>${critical}%</strong> were critical.
             The most reported state was <strong>${escapeHtml(trendSummary.topState)}</strong>.
           </p>
@@ -124,36 +124,36 @@ export function buildWeeklyDigest(): DigestEmail {
       </tr>
       <tr>
         <td style="padding:14px 24px 4px;">
-          <p style="margin:0 0 4px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#a1907f;">Rising now</p>
+          <p style="margin:0 0 4px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#a4b0a5;">Rising now</p>
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${risingRows}</table>
         </td>
       </tr>
       <tr>
         <td style="padding:16px 24px 6px;">
-          <p style="margin:0 0 4px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#a1907f;">Scam types</p>
+          <p style="margin:0 0 4px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#a4b0a5;">Scam types</p>
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${categoryRows}</table>
         </td>
       </tr>
       <tr>
         <td style="padding:16px 24px 24px;">
-          <div style="border:1px solid #f0c9a8;background:#fff7ed;border-radius:10px;padding:14px 16px;">
-            <p style="margin:0;font-size:13px;line-height:20px;color:#7c2d12;">
+          <div style="border:1px solid #f0dcbc;background:#fff5e8;border-radius:10px;padding:14px 16px;">
+            <p style="margin:0;font-size:13px;line-height:20px;color:#7d2c1c;">
               <strong>One habit that blocks most of these:</strong> never share an OTP, PIN or password with someone who contacted you. Banks do not ask for them.
             </p>
           </div>
           <p style="margin:18px 0 0;">
-            <a href="${siteUrl()}/analyze" style="display:inline-block;background:#ea580c;color:#fff7ed;text-decoration:none;font-size:13px;font-weight:600;padding:10px 18px;border-radius:8px;">Check a suspicious message</a>
+            <a href="${siteUrl()}/analyze" style="display:inline-block;background:#ee5537;color:#fff5e8;text-decoration:none;font-size:13px;font-weight:600;padding:10px 18px;border-radius:8px;">Check a suspicious message</a>
           </p>
         </td>
       </tr>
       <tr>
-        <td style="padding:16px 24px 22px;border-top:1px solid #eee7de;">
-          <p style="margin:0;font-size:11px;line-height:17px;color:#8a7a6a;">
+        <td style="padding:16px 24px 22px;border-top:1px solid #f4ecdf;">
+          <p style="margin:0;font-size:11px;line-height:17px;color:#8b9a8f;">
             FakeShield AI provides risk guidance, not a final security verdict.<br />
             Illustrative trend data for this demo; not a live feed from cybercrime.gov.in.
           </p>
-          <p style="margin:8px 0 0;font-size:10px;color:#a1907f;">
-            <a href="${siteUrl()}/api/digest/unsubscribe?email={{email}}" style="color:#a1907f;">Unsubscribe</a>
+          <p style="margin:8px 0 0;font-size:10px;color:#a4b0a5;">
+            <a href="${siteUrl()}/api/digest/unsubscribe?email={{email}}" style="color:#a4b0a5;">Unsubscribe</a>
           </p>
         </td>
       </tr>

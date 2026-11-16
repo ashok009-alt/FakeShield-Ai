@@ -21,11 +21,11 @@ import { IndiaScamMap } from "@/components/india-scam-map";
 import { cn } from "@/lib/utils";
 
 const tooltipStyle = {
-  backgroundColor: "#150e08",
-  border: "1px solid #342416",
+  backgroundColor: "#0a2421",
+  border: "1px solid #1a423c",
   borderRadius: 10,
   fontSize: 12,
-  color: "#eadfd2",
+  color: "#f1e7d7",
   boxShadow: "0 12px 30px rgba(0,0,0,0.5)",
 } as const;
 
@@ -77,7 +77,7 @@ export function TrendsDashboard() {
             </div>
             <div className="flex items-center gap-3 text-[10px] text-stone-500">
               <span className="inline-flex items-center gap-1.5">
-                <span className="size-2 rounded-full bg-orange-400" /> All reports
+                <span className="size-2 rounded-full bg-amber-300" /> All reports
               </span>
               <span className="inline-flex items-center gap-1.5">
                 <span className="size-2 rounded-full bg-red-400/80" /> High + critical
@@ -90,25 +90,25 @@ export function TrendsDashboard() {
               <AreaChart data={trendDaily} margin={{ top: 6, right: 8, bottom: 0, left: 0 }}>
                 <defs>
                   <linearGradient id="trendAll" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#fb923c" stopOpacity={0.45} />
-                    <stop offset="100%" stopColor="#fb923c" stopOpacity={0.02} />
+                    <stop offset="0%" stopColor="#e6c690" stopOpacity={0.38} />
+                    <stop offset="100%" stopColor="#e6c690" stopOpacity={0.02} />
                   </linearGradient>
                   <linearGradient id="trendHigh" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#f87171" stopOpacity={0.32} />
-                    <stop offset="100%" stopColor="#f87171" stopOpacity={0.01} />
+                    <stop offset="0%" stopColor="#ff8b7a" stopOpacity={0.32} />
+                    <stop offset="100%" stopColor="#ff8b7a" stopOpacity={0.01} />
                   </linearGradient>
                 </defs>
-                <CartesianGrid vertical={false} stroke="#2c1f14" strokeDasharray="3 3" />
+                <CartesianGrid vertical={false} stroke="#173d37" strokeDasharray="3 3" />
                 <XAxis
                   dataKey="day"
                   tickLine={false}
                   axisLine={false}
-                  tick={{ fill: "#8a7461", fontSize: 11 }}
+                  tick={{ fill: "#8fa39a", fontSize: 11 }}
                 />
                 <YAxis
                   tickLine={false}
                   axisLine={false}
-                  tick={{ fill: "#8a7461", fontSize: 11 }}
+                  tick={{ fill: "#8fa39a", fontSize: 11 }}
                   width={40}
                   tickFormatter={(value: number) =>
                     value >= 1000 ? `${(value / 1000).toFixed(1).replace(/\.0$/, "")}k` : `${value}`
@@ -116,7 +116,7 @@ export function TrendsDashboard() {
                 />
                 <Tooltip
                   contentStyle={tooltipStyle}
-                  labelStyle={{ color: "#b8a694", fontSize: 11 }}
+                  labelStyle={{ color: "#c3c7b8", fontSize: 11 }}
                   formatter={(value: number, name: string) => [
                     `${value.toLocaleString("en-IN")} reports`,
                     name === "reports" ? "All reports" : "High + critical",
@@ -125,7 +125,7 @@ export function TrendsDashboard() {
                 <Area
                   type="monotone"
                   dataKey="reports"
-                  stroke="#fb923c"
+                  stroke="#e6c690"
                   strokeWidth={2}
                   fill="url(#trendAll)"
                   animationDuration={700}
@@ -133,7 +133,7 @@ export function TrendsDashboard() {
                 <Area
                   type="monotone"
                   dataKey="highRisk"
-                  stroke="#f87171"
+                  stroke="#ff8b7a"
                   strokeWidth={1.6}
                   fill="url(#trendHigh)"
                   animationDuration={900}
@@ -308,7 +308,7 @@ function Kpi({
         ? "border-amber-500/20 bg-amber-500/[0.04] text-amber-300"
         : "border-orange-500/20 bg-orange-500/[0.04] text-orange-300";
   return (
-    <div className={cn("rounded-2xl border p-4", styles)}>
+    <div className={cn("lift-3d rounded-2xl border p-4", styles)}>
       <div className="flex items-center justify-between">
         <span className="text-[10px] font-semibold uppercase tracking-[0.14em] opacity-70">{label}</span>
         <Icon className="size-3.5 opacity-70" />

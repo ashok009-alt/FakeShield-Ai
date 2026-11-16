@@ -28,9 +28,9 @@ export function BeforeAfterPanel({
       aria-label="Before and after annotation"
       className={cn("relative overflow-hidden rounded-2xl", className)}
       style={{
-        border: "1px solid rgba(50,36,24,0.9)",
+        border: "1px solid rgba(15, 55, 50,0.9)",
         background:
-          "linear-gradient(145deg, rgba(28,20,12,0.95) 0%, rgba(15,9,6,0.98) 100%)",
+          "linear-gradient(145deg, rgba(11, 40, 37,0.95) 0%, rgba(6, 28, 26,0.98) 100%)",
       }}
     >
       <div className="texture-noise pointer-events-none absolute inset-0 opacity-[0.035]" aria-hidden="true" />

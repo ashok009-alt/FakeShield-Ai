@@ -33,9 +33,9 @@ const HELPS = [
     body: "Deep-scan any SMS, WhatsApp, or chat message for urgency manipulation, impersonation, payment pressure, and credential harvesting.",
     href: "/analyze",
     linkLabel: "Open analyzer",
-    accent: "#f97316",
-    accentBg: "rgba(249,115,22,0.07)",
-    accentBorder: "rgba(249,115,22,0.2)",
+    accent: "#ff6f4e",
+    accentBg: "rgba(255, 111, 78,0.07)",
+    accentBorder: "rgba(255, 111, 78,0.2)",
   },
   {
     icon: Globe,
@@ -43,9 +43,9 @@ const HELPS = [
     body: "Parse and classify any URL for lookalike domains, typosquatting, suspicious TLDs, and known threat-feed hits — without loading the page.",
     href: "/link",
     linkLabel: "Scan a URL",
-    accent: "#f59e0b",
-    accentBg: "rgba(245,158,11,0.07)",
-    accentBorder: "rgba(245,158,11,0.2)",
+    accent: "#d9ad69",
+    accentBg: "rgba(217, 173, 105,0.07)",
+    accentBorder: "rgba(217, 173, 105,0.2)",
   },
   {
     icon: Layers,
@@ -53,17 +53,17 @@ const HELPS = [
     body: "Get a structured remediation playbook matched to your specific threat type — not generic warnings.",
     href: "/learn",
     linkLabel: "Browse guides",
-    accent: "#22c55e",
-    accentBg: "rgba(34,197,94,0.07)",
-    accentBorder: "rgba(34,197,94,0.2)",
+    accent: "#20a586",
+    accentBg: "rgba(34, 169, 138,0.07)",
+    accentBorder: "rgba(34, 169, 138,0.2)",
   },
 ];
 
 const TRUST = [
-  { icon: EyeOff, label: "Links never opened or rendered", color: "#fb923c" },
-  { icon: Fingerprint, label: "Anonymous browser-scoped session", color: "#fbbf24" },
-  { icon: Gauge, label: "Confidence scores always shown", color: "#34d399" },
-  { icon: ShieldCheck, label: "Delete any record at any time", color: "#fbbf24" },
+  { icon: EyeOff, label: "Links never opened or rendered", color: "#ff8a66" },
+  { icon: Fingerprint, label: "Anonymous browser-scoped session", color: "#e6c690" },
+  { icon: Gauge, label: "Confidence scores always shown", color: "#3fc0a3" },
+  { icon: ShieldCheck, label: "Delete any record at any time", color: "#e6c690" },
 ];
 
 const COVERAGE = [
@@ -76,16 +76,16 @@ const COVERAGE = [
 ];
 
 const SEV_STYLE: Record<string, { bg: string; border: string; text: string }> = {
-  CRITICAL: { bg: "rgba(239,68,68,0.09)", border: "rgba(239,68,68,0.28)", text: "#f87171" },
-  HIGH: { bg: "rgba(249,115,22,0.09)", border: "rgba(249,115,22,0.25)", text: "#fb923c" },
-  MEDIUM: { bg: "rgba(245,158,11,0.09)", border: "rgba(245,158,11,0.25)", text: "#fbbf24" },
+  CRITICAL: { bg: "rgba(240, 75, 63,0.09)", border: "rgba(240, 75, 63,0.28)", text: "#ff8b7a" },
+  HIGH: { bg: "rgba(255, 111, 78,0.09)", border: "rgba(255, 111, 78,0.25)", text: "#ff8a66" },
+  MEDIUM: { bg: "rgba(217, 173, 105,0.09)", border: "rgba(217, 173, 105,0.25)", text: "#e6c690" },
 };
 
 const STATS = [
-  { end: 6, suffix: "+", label: "Threat categories", color: "#fb923c", icon: Target },
-  { end: 2, suffix: "s", label: "Max detection time", color: "#34d399", icon: Zap },
-  { end: 100, suffix: "%", label: "Local processing", color: "#fbbf24", icon: LockKeyhole },
-  { end: 0, suffix: "", label: "Links fetched", color: "#fbbf24", icon: EyeOff },
+  { end: 6, suffix: "+", label: "Threat categories", color: "#ff8a66", icon: Target },
+  { end: 2, suffix: "s", label: "Max detection time", color: "#3fc0a3", icon: Zap },
+  { end: 100, suffix: "%", label: "Local processing", color: "#e6c690", icon: LockKeyhole },
+  { end: 0, suffix: "", label: "Links fetched", color: "#e6c690", icon: EyeOff },
 ];
 
 /* ─── Fade-in-up wrapper ──────────────────────────────────────────── */
@@ -111,14 +111,14 @@ export default function HomePage() {
     <div className="overflow-x-hidden">
 
       {/* ══ HERO ══════════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden border-b border-[#3a2a1c]">
+      <section className="relative overflow-hidden border-b border-[#1f4a43]">
         {/* Readability scrim over the fixed site-wide background video */}
         <div
           className="pointer-events-none absolute inset-0"
           style={{
             zIndex: 0,
             background:
-              "linear-gradient(100deg, rgba(11,7,4,0.88) 0%, rgba(11,7,4,0.62) 32%, rgba(11,7,4,0.16) 64%, rgba(11,7,4,0) 100%)",
+              "linear-gradient(100deg, rgba(6, 29, 27,0.88) 0%, rgba(6, 29, 27,0.62) 32%, rgba(6, 29, 27,0.16) 64%, rgba(6, 29, 27,0) 100%)",
           }}
           aria-hidden="true"
         />
@@ -128,7 +128,7 @@ export default function HomePage() {
           style={{
             zIndex: 1,
             background:
-              "linear-gradient(180deg, rgba(11,7,4,0.5) 0%, rgba(11,7,4,0.28) 60%, rgba(11,7,4,0.5) 100%)",
+              "linear-gradient(180deg, rgba(6, 29, 27,0.5) 0%, rgba(6, 29, 27,0.28) 60%, rgba(6, 29, 27,0.5) 100%)",
           }}
           aria-hidden="true"
         />
@@ -141,12 +141,12 @@ export default function HomePage() {
         {/* Ambient top glow */}
         <div
           className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[500px] w-[900px]"
-          style={{ zIndex: 1, background: "radial-gradient(ellipse, rgba(249,115,22,0.09) 0%, transparent 65%)" }}
+          style={{ zIndex: 1, background: "radial-gradient(ellipse, rgba(255, 111, 78,0.09) 0%, transparent 65%)" }}
           aria-hidden="true"
         />
         {/* Soft fade into the next section */}
         <div
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0b0704] to-transparent"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#061d1b] to-transparent"
           style={{ zIndex: 1 }}
           aria-hidden="true"
         />
@@ -160,7 +160,7 @@ export default function HomePage() {
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="flex items-center gap-3 mb-6"
             >
-              <span className="flex items-center gap-1.5 rounded-sm border border-[#3a2a1c] bg-[#171009] px-2.5 py-1 text-[10px] font-mono font-bold tracking-wider text-stone-400">
+              <span className="flex items-center gap-1.5 rounded-sm border border-[#1f4a43] bg-[#0b2825] px-2.5 py-1 text-[10px] font-mono font-bold tracking-wider text-stone-400">
                 <span className="live-dot" />
                 THREAT INTELLIGENCE PLATFORM
               </span>
@@ -198,8 +198,8 @@ export default function HomePage() {
                 href="/analyze"
                 className="inline-flex h-11 items-center gap-2.5 rounded-sm px-6 text-[13px] font-bold tracking-wide text-amber-950 transition-all hover:brightness-110 hover:-translate-y-px"
                 style={{
-                  background: "linear-gradient(135deg, #fb923c 0%, #f97316 100%)",
-                  boxShadow: "0 1px 0 rgba(255,255,255,0.18) inset, 0 4px 20px rgba(249,115,22,0.4)",
+                  background: "linear-gradient(135deg, #ff8a66 0%, #ff6f4e 100%)",
+                  boxShadow: "0 1px 0 rgba(255,255,255,0.18) inset, 0 4px 20px rgba(255, 111, 78,0.4)",
                   letterSpacing: "0.05em",
                 }}
               >
@@ -208,7 +208,7 @@ export default function HomePage() {
               </Link>
               <Link
                 href="/link"
-                className="inline-flex h-11 items-center gap-2.5 rounded-sm border border-[#4a3422] bg-[#171009] px-6 text-[13px] font-semibold text-stone-200 transition-all hover:border-stone-500 hover:bg-[#1d130a]"
+                className="inline-flex h-11 items-center gap-2.5 rounded-sm border border-[#2a5a51] bg-[#0b2825] px-6 text-[13px] font-semibold text-stone-200 transition-all hover:border-stone-500 hover:bg-[#0c2d29]"
                 style={{ letterSpacing: "0.03em" }}
               >
                 <Globe className="size-4 text-amber-400" />
@@ -224,7 +224,7 @@ export default function HomePage() {
               className="mt-7 flex flex-wrap items-center gap-x-3.5 gap-y-1.5 font-mono text-[9.5px] uppercase tracking-[0.14em] text-stone-600"
             >
               <span className="text-stone-500">Telemetry</span>
-              <span className="h-3 w-px bg-[#3a2a1c]" aria-hidden="true" />
+              <span className="h-3 w-px bg-[#1f4a43]" aria-hidden="true" />
               <span>
                 Signals <b className="font-semibold text-amber-300/90">87</b>
               </span>
@@ -244,7 +244,7 @@ export default function HomePage() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="mt-9 grid grid-cols-2 gap-x-6 gap-y-2.5 border-t border-[#3a2a1c] pt-7 max-w-sm"
+              className="mt-9 grid grid-cols-2 gap-x-6 gap-y-2.5 border-t border-[#1f4a43] pt-7 max-w-sm"
             >
               {TRUST.map((item) => (
                 <div key={item.label} className="flex items-center gap-2">
@@ -274,7 +274,7 @@ export default function HomePage() {
       </section>
 
       {/* ══ LIVE ANALYZER ═════════════════════════════════════════════════ */}
-      <section className="relative border-b border-[#3a2a1c]" style={{ background: "linear-gradient(160deg,rgba(18,12,8,0.78) 0%,rgba(11,7,4,0.88) 100%)" }}>
+      <section className="relative border-b border-[#1f4a43]" style={{ background: "linear-gradient(160deg,rgba(8, 30, 28,0.78) 0%,rgba(6, 29, 27,0.88) 100%)" }}>
         <div className="texture-grid pointer-events-none absolute inset-0 opacity-40" aria-hidden="true" />
         <div className="texture-noise pointer-events-none absolute inset-0 opacity-[0.03]" aria-hidden="true" />
         <div className="page-shell relative py-14 sm:py-18">
@@ -292,9 +292,9 @@ export default function HomePage() {
             <TiltCard
               className="relative rounded-sm overflow-visible"
               style={{
-                background: "linear-gradient(160deg, #201509 0%, #0f0906 100%)",
-                border: "1px solid #4a3422",
-                boxShadow: "0 20px 60px -20px rgba(0,0,0,0.8), 0 0 0 1px rgba(249,115,22,0.05) inset",
+                background: "linear-gradient(160deg, #0e322e 0%, #061c1a 100%)",
+                border: "1px solid #2a5a51",
+                boxShadow: "0 20px 60px -20px rgba(0,0,0,0.8), 0 0 0 1px rgba(255, 111, 78,0.05) inset",
               }}
               strength={6}
             >
@@ -308,8 +308,8 @@ export default function HomePage() {
 
       {/* ══ ANIMATED STATS ════════════════════════════════════════════════ */}
       <section
-        className="relative border-b border-[#3a2a1c]"
-        style={{ background: "linear-gradient(90deg, rgba(11,7,4,0.64) 0%, rgba(20,13,8,0.72) 50%, rgba(11,7,4,0.64) 100%)" }}
+        className="relative border-b border-[#1f4a43]"
+        style={{ background: "linear-gradient(90deg, rgba(6, 29, 27,0.64) 0%, rgba(8, 33, 31,0.72) 50%, rgba(6, 29, 27,0.64) 100%)" }}
       >
         <div className="texture-noise pointer-events-none absolute inset-0 opacity-[0.035]" aria-hidden="true" />
         <div className="page-shell relative py-8">
@@ -317,7 +317,7 @@ export default function HomePage() {
             {STATS.map((stat, i) => (
               <FadeUp key={stat.label} delay={i * 0.08}>
                 <TiltCard
-                  className="flex items-center gap-4 rounded-sm border border-[#3a2a1c] bg-[#171009] px-5 py-4"
+                  className="flex items-center gap-4 rounded-sm border border-[#1f4a43] bg-[#0b2825] px-5 py-4"
                   strength={8}
                   glare
                 >
@@ -355,7 +355,7 @@ export default function HomePage() {
               <TiltCard
                 className="group relative flex flex-col h-full rounded-sm transition-all duration-200"
                 style={{
-                  background: `linear-gradient(160deg, ${item.accentBg} 0%, rgba(23,16,9,0.97) 60%)`,
+                  background: `linear-gradient(160deg, ${item.accentBg} 0%, rgba(9, 35, 32,0.97) 60%)`,
                   border: `1px solid ${item.accentBorder}`,
                   boxShadow: "0 8px 32px -16px rgba(0,0,0,0.6)",
                 }}
@@ -395,8 +395,8 @@ export default function HomePage() {
 
       {/* ══ THREAT METER + EXPLAINABILITY ═════════════════════════════════ */}
       <section
-        className="relative overflow-hidden border-y border-[#3a2a1c]"
-        style={{ background: "linear-gradient(160deg, rgba(18,12,8,0.76) 0%, rgba(11,7,4,0.87) 100%)" }}
+        className="relative overflow-hidden border-y border-[#1f4a43]"
+        style={{ background: "linear-gradient(160deg, rgba(8, 30, 28,0.76) 0%, rgba(6, 29, 27,0.87) 100%)" }}
       >
         <div className="pointer-events-none absolute inset-0 circuit-bg opacity-25" aria-hidden="true" />
         <div className="page-shell relative grid gap-12 py-16 sm:py-20 lg:grid-cols-[1fr_1fr] lg:items-start">
@@ -430,7 +430,7 @@ export default function HomePage() {
                 >
                   <span
                     className="grid size-5 shrink-0 place-items-center rounded-sm"
-                    style={{ background: "rgba(249,115,22,0.1)", border: "1px solid rgba(249,115,22,0.25)" }}
+                    style={{ background: "rgba(255, 111, 78,0.1)", border: "1px solid rgba(255, 111, 78,0.25)" }}
                   >
                     <Check className="size-3 text-amber-400" strokeWidth={3} />
                   </span>
@@ -441,14 +441,14 @@ export default function HomePage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/email"
-                className="inline-flex h-10 items-center gap-2 rounded-sm border border-[#4a3422] bg-[#171009] px-4 text-[13px] font-semibold text-stone-200 hover:border-stone-500 transition-colors"
+                className="inline-flex h-10 items-center gap-2 rounded-sm border border-[#2a5a51] bg-[#0b2825] px-4 text-[13px] font-semibold text-stone-200 hover:border-stone-500 transition-colors"
               >
                 <Mail className="size-4 text-amber-400" />
                 Email analyzer
               </Link>
               <Link
                 href="/patterns"
-                className="inline-flex h-10 items-center gap-2 rounded-sm border border-[#3a2a1c] bg-transparent px-4 text-[13px] font-semibold text-stone-400 hover:text-stone-200 hover:bg-white/[0.03] transition-colors"
+                className="inline-flex h-10 items-center gap-2 rounded-sm border border-[#1f4a43] bg-transparent px-4 text-[13px] font-semibold text-stone-400 hover:text-stone-200 hover:bg-white/[0.03] transition-colors"
               >
                 <Sparkles className="size-4 text-amber-400" />
                 Pattern library
@@ -461,16 +461,16 @@ export default function HomePage() {
             <TiltCard
               className="relative overflow-hidden rounded-sm p-5 sm:p-6"
               style={{
-                background: "linear-gradient(160deg, #201509 0%, #0f0906 100%)",
-                border: "1px solid #4a3422",
-                boxShadow: "0 0 0 1px rgba(249,115,22,0.04) inset, 0 20px 60px -30px rgba(0,0,0,0.8)",
+                background: "linear-gradient(160deg, #0e322e 0%, #061c1a 100%)",
+                border: "1px solid #2a5a51",
+                boxShadow: "0 0 0 1px rgba(255, 111, 78,0.04) inset, 0 20px 60px -30px rgba(0,0,0,0.8)",
               }}
               strength={7}
               glare
             >
               <div className="texture-noise pointer-events-none absolute inset-0 opacity-[0.04]" aria-hidden="true" />
               <HudCorners />
-              <div className="relative flex items-center justify-between border-b border-[#3a2a1c] pb-4 mb-5">
+              <div className="relative flex items-center justify-between border-b border-[#1f4a43] pb-4 mb-5">
                 <div className="flex items-center gap-2 text-[12px] font-bold tracking-wide text-white">
                   <Activity className="size-4 text-amber-400" />
                   THREAT FREQUENCY ANALYSIS
@@ -486,7 +486,7 @@ export default function HomePage() {
               </p>
               <div
                 className="mt-5 rounded-sm px-4 py-3"
-                style={{ background: "rgba(249,115,22,0.05)", border: "1px solid rgba(249,115,22,0.15)" }}
+                style={{ background: "rgba(255, 111, 78,0.05)", border: "1px solid rgba(255, 111, 78,0.15)" }}
               >
                 <p className="text-[10px] font-black uppercase tracking-widest text-amber-400 mb-1">
                   Engine verdict example
@@ -525,8 +525,8 @@ export default function HomePage() {
             return (
               <FadeUp key={item.id} delay={i * 0.07}>
                 <TiltCard
-                  className="group flex items-center justify-between rounded-sm border px-5 py-4 transition-all duration-150 hover:border-[#5c4129]"
-                  style={{ background: "rgba(23,16,9,0.7)", border: "1px solid #3a2a1c" }}
+                  className="group flex items-center justify-between rounded-sm border px-5 py-4 transition-all duration-150 hover:border-[#2a5a51]"
+                  style={{ background: "rgba(9, 35, 32,0.7)", border: "1px solid #1f4a43" }}
                   strength={6}
                   glare
                 >
@@ -555,10 +555,10 @@ export default function HomePage() {
         <div className="mt-8 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
           {(["Low", "Medium", "High", "Critical"] as const).map((level, i) => {
             const c = {
-              Low: { accent: "#22c55e", bg: "rgba(34,197,94,0.06)", border: "rgba(34,197,94,0.18)", range: "0–24" },
-              Medium: { accent: "#f59e0b", bg: "rgba(245,158,11,0.06)", border: "rgba(245,158,11,0.18)", range: "25–49" },
-              High: { accent: "#f97316", bg: "rgba(249,115,22,0.06)", border: "rgba(249,115,22,0.18)", range: "50–74" },
-              Critical: { accent: "#ef4444", bg: "rgba(239,68,68,0.07)", border: "rgba(239,68,68,0.2)", range: "75–100" },
+              Low: { accent: "#20a586", bg: "rgba(34, 169, 138,0.06)", border: "rgba(34, 169, 138,0.18)", range: "0–24" },
+              Medium: { accent: "#d9ad69", bg: "rgba(217, 173, 105,0.06)", border: "rgba(217, 173, 105,0.18)", range: "25–49" },
+              High: { accent: "#ff6f4e", bg: "rgba(255, 111, 78,0.06)", border: "rgba(255, 111, 78,0.18)", range: "50–74" },
+              Critical: { accent: "#f25042", bg: "rgba(240, 75, 63,0.07)", border: "rgba(240, 75, 63,0.2)", range: "75–100" },
             }[level];
             return (
               <FadeUp key={level} delay={i * 0.08}>
@@ -597,8 +597,8 @@ export default function HomePage() {
 
       {/* ══ PRIVACY ═══════════════════════════════════════════════════════ */}
       <section
-        className="relative overflow-hidden border-y border-[#3a2a1c]"
-        style={{ background: "linear-gradient(160deg, rgba(18,12,8,0.76) 0%, rgba(11,7,4,0.87) 100%)" }}
+        className="relative overflow-hidden border-y border-[#1f4a43]"
+        style={{ background: "linear-gradient(160deg, rgba(8, 30, 28,0.76) 0%, rgba(6, 29, 27,0.87) 100%)" }}
       >
         <div className="pointer-events-none absolute inset-0 dot-matrix opacity-18" aria-hidden="true" />
         <div className="texture-noise pointer-events-none absolute inset-0 opacity-[0.035]" aria-hidden="true" />
@@ -607,7 +607,7 @@ export default function HomePage() {
             <h2 className="flex items-start gap-3 text-xl font-bold text-white">
               <span
                 className="grid size-9 shrink-0 place-items-center rounded-sm mt-0.5"
-                style={{ background: "rgba(249,115,22,0.1)", border: "1px solid rgba(249,115,22,0.25)" }}
+                style={{ background: "rgba(255, 111, 78,0.1)", border: "1px solid rgba(255, 111, 78,0.25)" }}
               >
                 <LockKeyhole className="size-4.5 text-amber-400" />
               </span>
@@ -626,15 +626,15 @@ export default function HomePage() {
           </FadeUp>
           <div className="grid gap-3 sm:grid-cols-2">
             {[
-              { icon: EyeOff, title: "No link execution", body: "URLs are parsed server-side — never fetched or rendered.", color: "#fb923c" },
-              { icon: Fingerprint, title: "Pseudonymous session", body: "No login, email, or profile. A local UUID scopes history.", color: "#fbbf24" },
-              { icon: Gauge, title: "Calibrated confidence", body: "Confidence is bounded and explained — weak matches are never overstated.", color: "#34d399" },
-              { icon: ShieldCheck, title: "Deletable records", body: "Every saved report is removable from History with one click.", color: "#fbbf24" },
+              { icon: EyeOff, title: "No link execution", body: "URLs are parsed server-side — never fetched or rendered.", color: "#ff8a66" },
+              { icon: Fingerprint, title: "Pseudonymous session", body: "No login, email, or profile. A local UUID scopes history.", color: "#e6c690" },
+              { icon: Gauge, title: "Calibrated confidence", body: "Confidence is bounded and explained — weak matches are never overstated.", color: "#3fc0a3" },
+              { icon: ShieldCheck, title: "Deletable records", body: "Every saved report is removable from History with one click.", color: "#e6c690" },
             ].map((card, i) => (
               <FadeUp key={card.title} delay={i * 0.08}>
                 <TiltCard
-                  className="rounded-sm border border-[#3a2a1c] p-4 transition-colors hover:border-[#5c4129] h-full"
-                  style={{ background: "linear-gradient(160deg, #1c120a 0%, #100a06 100%)" }}
+                  className="rounded-sm border border-[#1f4a43] p-4 transition-colors hover:border-[#2a5a51] h-full"
+                  style={{ background: "linear-gradient(160deg, #0a2320 0%, #061c1a 100%)" }}
                   strength={8}
                   glare
                 >
@@ -661,10 +661,10 @@ export default function HomePage() {
               methodology, data handling, and known limitations.
             </p>
             <div className="mt-6 flex flex-wrap gap-2.5">
-              <Link href="/about" className="inline-flex h-10 items-center gap-2 rounded-sm border border-[#4a3422] bg-[#171009] px-4 text-[13px] font-semibold text-stone-200 hover:border-stone-500 transition-colors">
+              <Link href="/about" className="inline-flex h-10 items-center gap-2 rounded-sm border border-[#2a5a51] bg-[#0b2825] px-4 text-[13px] font-semibold text-stone-200 hover:border-stone-500 transition-colors">
                 About &amp; limitations
               </Link>
-              <Link href="/learn" className="inline-flex h-10 items-center gap-2 rounded-sm border border-[#3a2a1c] bg-transparent px-4 text-[13px] font-semibold text-stone-400 hover:text-stone-200 hover:bg-white/[0.03] transition-colors">
+              <Link href="/learn" className="inline-flex h-10 items-center gap-2 rounded-sm border border-[#1f4a43] bg-transparent px-4 text-[13px] font-semibold text-stone-400 hover:text-stone-200 hover:bg-white/[0.03] transition-colors">
                 {learnGuides.length} response guides
               </Link>
             </div>
@@ -672,7 +672,7 @@ export default function HomePage() {
           <FadeUp delay={0.15}>
             <div
               className="rounded-sm px-5 sm:px-6"
-              style={{ background: "linear-gradient(160deg, #201509 0%, #0f0906 100%)", border: "1px solid #3a2a1c" }}
+              style={{ background: "linear-gradient(160deg, #0e322e 0%, #061c1a 100%)", border: "1px solid #1f4a43" }}
             >
               <Accordion type="single" collapsible>
                 {FAQS.map((item, index) => (
@@ -693,16 +693,16 @@ export default function HomePage() {
           <div
             className="relative overflow-hidden rounded-sm px-8 py-14 text-center sm:px-12 sm:py-16"
             style={{
-              background: "linear-gradient(160deg, #2a1808 0%, #140c06 50%, #2a1808 100%)",
-              border: "1px solid #4a3422",
-              boxShadow: "0 0 0 1px rgba(249,115,22,0.06) inset, 0 40px 100px -40px rgba(0,0,0,0.8)",
+              background: "linear-gradient(160deg, #103b35 0%, #08211f 50%, #103b35 100%)",
+              border: "1px solid #2a5a51",
+              boxShadow: "0 0 0 1px rgba(255, 111, 78,0.06) inset, 0 40px 100px -40px rgba(0,0,0,0.8)",
             }}
           >
             {/* Background video, same motif as the hero */}
             <VideoBackground
               still
               opacity={0.4}
-              overlayClassName="bg-[linear-gradient(180deg,rgba(11,7,4,0.86),rgba(20,13,8,0.93))]"
+              overlayClassName="bg-[linear-gradient(180deg,rgba(6, 29, 27,0.86),rgba(8, 33, 31,0.93))]"
             />
             <div className="pointer-events-none absolute inset-0 circuit-bg opacity-20" aria-hidden="true" />
             <div className="texture-noise pointer-events-none absolute inset-0 opacity-[0.045]" aria-hidden="true" />
@@ -710,13 +710,13 @@ export default function HomePage() {
             {/* Top ambient */}
             <div
               className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 h-40 w-80 rounded-full opacity-40"
-              style={{ background: "radial-gradient(ellipse, rgba(249,115,22,0.35), transparent)" }}
+              style={{ background: "radial-gradient(ellipse, rgba(255, 111, 78,0.35), transparent)" }}
               aria-hidden="true"
             />
             <div className="relative">
               <span
                 className="inline-flex items-center gap-2 rounded-sm border px-3 py-1 text-[10px] font-black tracking-widest uppercase mb-5"
-                style={{ background: "rgba(249,115,22,0.06)", border: "1px solid rgba(249,115,22,0.2)", color: "#fb923c" }}
+                style={{ background: "rgba(255, 111, 78,0.06)", border: "1px solid rgba(255, 111, 78,0.2)", color: "#ff8a66" }}
               >
                 <Radio className="size-3" />
                 Threat analysis ready
@@ -734,8 +734,8 @@ export default function HomePage() {
                     href="/analyze"
                     className="inline-flex h-12 items-center gap-2.5 rounded-sm px-8 text-[13px] font-bold tracking-wide text-amber-950"
                     style={{
-                      background: "linear-gradient(135deg, #fb923c 0%, #f97316 100%)",
-                      boxShadow: "0 1px 0 rgba(255,255,255,0.18) inset, 0 4px 20px rgba(249,115,22,0.4)",
+                      background: "linear-gradient(135deg, #ff8a66 0%, #ff6f4e 100%)",
+                      boxShadow: "0 1px 0 rgba(255,255,255,0.18) inset, 0 4px 20px rgba(255, 111, 78,0.4)",
                       letterSpacing: "0.05em",
                     }}
                   >
@@ -746,7 +746,7 @@ export default function HomePage() {
                 <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}>
                   <Link
                     href="/email"
-                    className="inline-flex h-12 items-center gap-2.5 rounded-sm border border-[#4a3422] bg-[#171009] px-7 text-[13px] font-semibold text-stone-200 hover:border-stone-500 transition-colors"
+                    className="inline-flex h-12 items-center gap-2.5 rounded-sm border border-[#2a5a51] bg-[#0b2825] px-7 text-[13px] font-semibold text-stone-200 hover:border-stone-500 transition-colors"
                     style={{ letterSpacing: "0.03em" }}
                   >
                     <Mail className="size-4 text-amber-400" />

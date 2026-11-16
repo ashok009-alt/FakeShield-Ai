@@ -102,10 +102,10 @@ export function SiteHeader({
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 border-b transition-all duration-300",
+        "sticky top-0 z-40 border-b transition-all duration-200",
         scrolled
-          ? "border-orange-500/10 bg-[#0b0704]/95 shadow-[0_1px_0_0_rgba(251,146,60,0.06),0_8px_32px_-8px_rgba(0,0,0,0.8)] backdrop-blur-xl"
-          : "border-transparent bg-[#0b0704]/80 backdrop-blur-md"
+          ? "border-slate-800/80 bg-slate-950/90 shadow-lg shadow-black/50 backdrop-blur-xl"
+          : "border-slate-800/40 bg-slate-950/70 backdrop-blur-md"
       )}
     >
       <ThreatTicker />
@@ -115,7 +115,7 @@ export function SiteHeader({
           <Logo />
         </Link>
 
-        <nav aria-label="Main navigation" className="hidden items-center gap-0.5 lg:flex">
+        <nav aria-label="Main navigation" className="hidden items-center gap-1 lg:flex">
           {NAV_LINKS.map((link) => {
             const active =
               pathname === link.href || (link.href !== "/" && pathname.startsWith(`${link.href}/`));
@@ -124,19 +124,13 @@ export function SiteHeader({
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "relative rounded-lg px-2.5 py-2 text-[13px] font-medium transition-all duration-150 xl:px-3",
+                  "relative rounded-lg px-3 py-1.5 text-[13px] font-medium transition-all duration-150",
                   active
-                    ? "text-white"
-                    : "text-stone-400 hover:bg-white/[0.05] hover:text-white"
+                    ? "text-white bg-slate-800/80"
+                    : "text-slate-400 hover:bg-slate-800/50 hover:text-slate-100"
                 )}
               >
                 {link.label}
-                {active ? (
-                  <>
-                    <span className="absolute inset-x-3 -bottom-[15px] h-px bg-gradient-to-r from-transparent via-orange-400 to-transparent" />
-                    <span className="absolute inset-0 rounded-lg bg-orange-500/[0.06]" />
-                  </>
-                ) : null}
               </Link>
             );
           })}
@@ -148,10 +142,10 @@ export function SiteHeader({
               aria-expanded={moreOpen}
               aria-haspopup="true"
               className={cn(
-                "inline-flex items-center gap-1 rounded-lg px-2.5 py-2 text-[13px] font-medium transition-colors xl:px-3",
+                "inline-flex items-center gap-1 rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors",
                 moreActive || moreOpen
-                  ? "bg-orange-500/[0.06] text-white"
-                  : "text-stone-400 hover:bg-white/[0.05] hover:text-white"
+                  ? "bg-slate-800/80 text-white"
+                  : "text-slate-400 hover:bg-slate-800/50 hover:text-slate-100"
               )}
             >
               More
@@ -159,7 +153,7 @@ export function SiteHeader({
             </button>
 
             {moreOpen ? (
-              <div className="absolute right-0 top-[calc(100%+14px)] z-50 w-[320px] overflow-hidden rounded-xl border border-border bg-[#150e08] p-1.5 shadow-2xl shadow-black/70">
+              <div className="absolute right-0 top-[calc(100%+12px)] z-50 w-[320px] overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/95 p-2 shadow-2xl shadow-black/80 backdrop-blur-xl">
                 {MORE_LINKS.map((link) => {
                   const active =
                     pathname === link.href || pathname.startsWith(`${link.href}/`);
@@ -168,17 +162,17 @@ export function SiteHeader({
                       key={link.href}
                       href={link.href}
                       className={cn(
-                        "flex items-center justify-between gap-2 rounded-lg px-2.5 py-2 transition-colors",
-                        active ? "bg-orange-500/10" : "hover:bg-white/[0.04]"
+                        "flex items-center justify-between gap-2 rounded-xl px-3 py-2 transition-colors",
+                        active ? "bg-blue-600/15 text-blue-300" : "hover:bg-slate-800/70 text-slate-300"
                       )}
                     >
                       <span>
-                        <span className={cn("block text-[12px] font-medium", active ? "text-orange-200" : "text-stone-200")}>
+                        <span className="block text-[12.5px] font-medium text-slate-100">
                           {link.label}
                         </span>
-                        <span className="block text-[10px] text-stone-500">{link.detail}</span>
+                        <span className="block text-[10.5px] text-slate-400">{link.detail}</span>
                       </span>
-                      <ArrowRight className="size-3 shrink-0 text-stone-600" />
+                      <ArrowRight className="size-3.5 shrink-0 text-slate-500" />
                     </Link>
                   );
                 })}
@@ -187,19 +181,19 @@ export function SiteHeader({
           </div>
         </nav>
 
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-3">
           <BrightnessToggle />
           <Link
             href="/analyze"
-            className="hidden sm:inline-flex h-9 items-center gap-2 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 px-4 text-[13px] font-semibold text-[#0b0704] shadow-[0_0_20px_rgba(251,146,60,0.35)] transition-all hover:shadow-[0_0_28px_rgba(251,146,60,0.5)] hover:from-orange-400 hover:to-orange-500 hover:-translate-y-px"
+            className="hidden sm:inline-flex h-9 items-center gap-2 rounded-xl bg-blue-600 px-4 text-[13px] font-semibold text-white shadow-sm shadow-blue-600/30 transition-all hover:bg-blue-500 hover:shadow-md hover:shadow-blue-500/25 active:scale-[0.98]"
           >
-            Analyze now
+            Scan threat
             <ArrowRight className="size-3.5" />
           </Link>
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden text-stone-400 hover:text-white hover:bg-white/[0.06]"
+            className="lg:hidden text-slate-400 hover:text-white hover:bg-slate-800/60"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -211,7 +205,7 @@ export function SiteHeader({
       </div>
 
       {open ? (
-        <div id="mobile-nav" className="border-t border-white/[0.06] bg-[#0b0704]/98 backdrop-blur-xl lg:hidden">
+        <div id="mobile-nav" className="border-t border-slate-800/80 bg-slate-950/98 backdrop-blur-xl lg:hidden">
           <nav aria-label="Mobile navigation" className="page-shell flex flex-col py-3">
             {NAV_LINKS.map((link) => {
               const active =
@@ -221,22 +215,17 @@ export function SiteHeader({
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "flex items-center justify-between rounded-xl px-3 py-3 text-sm transition-colors",
-                    active
-                      ? "bg-orange-500/[0.1] text-orange-200 border border-orange-500/15"
-                      : "text-stone-300 hover:bg-white/[0.04]"
+                    "flex items-center justify-between rounded-lg px-3 py-2.5 text-[13.5px] transition-colors",
+                    active ? "bg-blue-600/15 font-semibold text-blue-400" : "text-slate-300 hover:bg-slate-900"
                   )}
                 >
-                  <span className="flex items-center gap-2.5">
-                    {active && <span className="live-dot" />}
-                    {link.label}
-                  </span>
-                  <ArrowRight className="size-4 opacity-40" />
+                  {link.label}
+                  <ArrowRight className="size-3.5 text-slate-500" />
                 </Link>
               );
             })}
-            <p className="px-3 pb-1 pt-3 text-[9px] font-semibold uppercase tracking-[0.18em] text-stone-600">
-              More tools
+            <p className="px-3 pb-1 pt-3 text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+              More Tools
             </p>
             {MORE_LINKS.map((link) => {
               const active =
@@ -246,29 +235,21 @@ export function SiteHeader({
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "flex items-center justify-between rounded-xl px-3 py-2.5 text-[13px] transition-colors",
-                    active
-                      ? "bg-orange-500/[0.1] text-orange-200 border border-orange-500/15"
-                      : "text-stone-300 hover:bg-white/[0.04]"
+                    "flex items-center justify-between rounded-lg px-3 py-2 text-[12.5px] transition-colors",
+                    active ? "bg-blue-600/15 text-blue-300 font-semibold" : "text-slate-300 hover:bg-slate-900"
                   )}
                 >
-                  <span className="flex items-center gap-2.5">
-                    {active && <span className="live-dot" />}
-                    {link.label}
-                  </span>
-                  <ArrowRight className="size-4 opacity-40" />
+                  <span>{link.label}</span>
+                  <ArrowRight className="size-3 text-slate-500" />
                 </Link>
               );
             })}
-            <p className="px-3 pb-1 pt-3 text-[9px] font-semibold uppercase tracking-[0.18em] text-stone-600">
-              Quick actions
-            </p>
-            <div className="px-3 pb-2 pt-1">
+            <div className="px-3 pt-3">
               <Link
                 href="/analyze"
-                className="flex w-full h-11 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 text-sm font-semibold text-[#0b0704] shadow-[0_0_24px_rgba(251,146,60,0.4)]"
+                className="flex w-full h-10 items-center justify-center gap-2 rounded-xl bg-blue-600 text-sm font-semibold text-white shadow-md shadow-blue-600/30 hover:bg-blue-500 transition-colors"
               >
-                Analyze now
+                Scan Threat Now
                 <ArrowRight className="size-4" />
               </Link>
             </div>

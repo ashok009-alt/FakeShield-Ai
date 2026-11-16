@@ -21,8 +21,8 @@ export function ToolPageHeader({
   return (
     <div className={cn("max-w-3xl", className)}>
       <div className="flex flex-wrap items-center gap-3">
-        <span className="grid size-9 place-items-center rounded-xl border border-orange-500/20 bg-orange-500/[0.08]">
-          <Icon className="size-[18px] text-orange-300" />
+        <span className="icon-3d">
+          <Icon className="size-[18px]" />
         </span>
         <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-300/80">
           {eyebrow}

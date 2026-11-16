@@ -16,32 +16,32 @@ const CHECKS = [
     title: "Pressure & urgency",
     body: "Artificial deadlines, threats of suspension, and demands to act immediately.",
     color: "text-orange-400",
-    bg: "rgba(249,115,22,0.08)",
-    border: "rgba(249,115,22,0.15)",
+    bg: "rgba(255, 111, 78,0.08)",
+    border: "rgba(255, 111, 78,0.15)",
   },
   {
     icon: Banknote,
     title: "Payment & financial bait",
     body: "UPI requests, refunds, prizes, investments, gift cards and unusual payment routes.",
     color: "text-amber-400",
-    bg: "rgba(234,179,8,0.08)",
-    border: "rgba(234,179,8,0.15)",
+    bg: "rgba(216, 177, 114,0.08)",
+    border: "rgba(216, 177, 114,0.15)",
   },
   {
     icon: KeyRound,
     title: "Credential requests",
     body: "OTPs, PINs, passwords, CVVs and identity documents requested by message.",
     color: "text-red-400",
-    bg: "rgba(239,68,68,0.08)",
-    border: "rgba(239,68,68,0.15)",
+    bg: "rgba(240, 75, 63,0.08)",
+    border: "rgba(240, 75, 63,0.15)",
   },
   {
     icon: Fingerprint,
     title: "Impersonation",
     body: "Bank, government, courier and brand names combined with unusual contact details.",
     color: "text-orange-200",
-    bg: "rgba(180,83,9,0.08)",
-    border: "rgba(180,83,9,0.15)",
+    bg: "rgba(164, 116, 58,0.08)",
+    border: "rgba(164, 116, 58,0.15)",
   },
 ];
 
@@ -65,7 +65,7 @@ export default function AnalyzePage() {
           Paste it.{" "}
           <span
             style={{
-              background: "linear-gradient(135deg, #fb923c 0%, #b45309 100%)",
+              background: "linear-gradient(135deg, #ff8a66 0%, #a4743a 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -112,8 +112,8 @@ export default function AnalyzePage() {
         <div
           className="rounded-2xl p-5 sm:p-6"
           style={{
-            background: "linear-gradient(145deg, rgba(28,20,12,0.95) 0%, rgba(15,9,6,0.98) 100%)",
-            border: "1px solid rgba(50,36,24,0.9)",
+            background: "linear-gradient(145deg, rgba(11, 40, 37,0.95) 0%, rgba(6, 28, 26,0.98) 100%)",
+            border: "1px solid rgba(15, 55, 50,0.9)",
           }}
         >
           <h2 id="score-bands" className="text-sm font-bold text-white">

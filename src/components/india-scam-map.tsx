@@ -42,17 +42,17 @@ const HEAT_RAMP = [
   ["linear"],
   ["coalesce", ["get", "reports"], 0],
   0,
-  "#241711",
+  "#0f172a",
   250,
-  "#43240f",
+  "#1e3a8a",
   550,
-  "#74330f",
+  "#2563eb",
   900,
-  "#a94411",
+  "#f59e0b",
   1300,
-  "#e05d0f",
+  "#ea580c",
   1840,
-  "#fb923c",
+  "#ef4444",
 ] as const;
 
 function hasWebGL() {
@@ -157,7 +157,7 @@ export function IndiaScamMap({ className }: { className?: string }) {
               "fill-color": [
                 "case",
                 ["boolean", ["feature-state", "hover"], false],
-                "#fdba74",
+                "#ffb59c",
                 HEAT_RAMP,
               ] as never,
               "fill-opacity": [
@@ -174,7 +174,7 @@ export function IndiaScamMap({ className }: { className?: string }) {
             type: "line",
             source: "states",
             paint: {
-              "line-color": "#f6cba5",
+              "line-color": "#f0dcbc",
               "line-opacity": 0.22,
               "line-width": 0.8,
             },
@@ -187,7 +187,7 @@ export function IndiaScamMap({ className }: { className?: string }) {
             type: "circle",
             source: "hotspots",
             paint: {
-              "circle-color": "#fb923c",
+              "circle-color": "#ff8a66",
               "circle-blur": 1,
               "circle-opacity": 0.22,
               "circle-radius": [
@@ -208,9 +208,9 @@ export function IndiaScamMap({ className }: { className?: string }) {
             type: "circle",
             source: "hotspots",
             paint: {
-              "circle-color": "#ffedd5",
+              "circle-color": "#ffeadf",
               "circle-opacity": 0.75,
-              "circle-stroke-color": "#fb923c",
+              "circle-stroke-color": "#ff8a66",
               "circle-stroke-width": 1,
               "circle-radius": 2.4,
             },
@@ -375,13 +375,13 @@ export function IndiaScamMap({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#0b0805]",
+        "relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#071e1c]",
         className
       )}
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_0%,rgba(251,146,60,0.12),transparent_58%),radial-gradient(80%_60%_at_18%_88%,rgba(120,53,15,0.25),transparent_70%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_0%,rgba(255, 138, 102,0.12),transparent_58%),radial-gradient(80%_60%_at_18%_88%,rgba(15, 76, 68,0.25),transparent_70%)]"
       />
       <div
         ref={containerRef}
@@ -391,7 +391,7 @@ export function IndiaScamMap({ className }: { className?: string }) {
       />
 
       {status === "loading" ? (
-        <div className="absolute inset-0 grid place-items-center bg-[#0b0805]/70">
+        <div className="absolute inset-0 grid place-items-center bg-[#071e1c]/70">
           <span className="inline-flex items-center gap-2 text-[11px] text-stone-400">
             <Loader2 className="size-3.5 animate-spin" /> Loading map…
           </span>
@@ -435,7 +435,7 @@ export function IndiaScamMap({ className }: { className?: string }) {
             <div className="rounded-lg border border-white/[0.07] bg-black/45 px-2.5 py-1.5 backdrop-blur">
               <div className="flex items-center gap-1.5 text-[9px] text-stone-400">
                 <span>Fewer</span>
-                <span className="h-1.5 w-24 rounded-full bg-[linear-gradient(90deg,#241711,#43240f,#74330f,#a94411,#e05d0f,#fb923c)]" />
+                <span className="h-1.5 w-24 rounded-full bg-[linear-gradient(90deg,#0f172a,#1e3a8a,#2563eb,#f59e0b,#ea580c,#ef4444)]" />
                 <span>More</span>
               </div>
             </div>

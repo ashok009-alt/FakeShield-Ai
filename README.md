@@ -4,7 +4,7 @@ FakeShield AI explains whether a suspicious **message, screenshot, forwarded Wha
 
 It provides **risk guidance, not a final security verdict**. Every result is phrased as possible/likely/high risk and carries a visible disclaimer.
 
-The homepage is an immersive, liquid-glass landing over the ember background video. All tools share one rule engine, one session-scoped history and one design system, so a verdict from the screenshot analyser and a verdict from the browser-extension concept are computed the same way.
+The homepage is an immersive, liquid-glass landing over the background video. All tools share one rule engine, one session-scoped history and one design system, so a verdict from the screenshot analyser and a verdict from the browser-extension concept are computed the same way.
 
 The backdrop is adaptive rather than fixed: analyzers get a quieter field, intelligence pages a richer one, the family checker an almost-still poster, and a High/Critical result subtly warms the glow beneath the page. It also follows the brightness setting, viewport size and reduced-motion preference.
 
@@ -147,7 +147,7 @@ A browser mock with WhatsApp Web, Gmail and a suspicious-site tab. “Scan” ru
 ### Platform
 
 - Liquid-glass landing at `/` with background video, “Powered by FakeShield AI” badge, live triage preview and one-click samples. Original marketing page at `/platform`.
-- **Adaptive backdrop.** The fixed layer reads the route: analyzers (`/analyze`, `/image`, `/forward`, `/link`, `/email`, `/language`) get lower footage opacity and stronger scrims, intelligence pages a richer ember field, guides a quieter one, and `/protect/*` an almost-still poster. A High/Critical result warms the ambient glow, a Low result cools it; brightness, mobile width and reduced-motion/transparency adjust the same variables. The landing hero follows the brightness setting too.
+- **Adaptive backdrop.** The fixed layer reads the route: analyzers (`/analyze`, `/image`, `/forward`, `/link`, `/email`, `/language`) get lower footage opacity and stronger scrims, intelligence pages a richer sea-glass field, guides a quieter one, and `/protect/*` an almost-still poster. A High/Critical result warms the ambient glow toward coral, a Low result cools it toward teal; brightness, mobile width and reduced-motion/transparency adjust the same variables. The landing hero follows the brightness setting too.
 - Simulated live threat ticker on content pages, labelled **Simulated feed**; CSS-only motion, pauses on hover/focus, stops for reduced motion.
 - Dark/bright toggle persisted in `localStorage` and applied before paint.
 - **Voice dictation** on `/analyze` via the browser Web Speech API (English, Hindi, Bengali, Tamil, Telugu, Marathi). Audio is handled by the browser's speech service, never by FakeShield; the transcript is appended for review before analysis.
@@ -313,11 +313,13 @@ src/
   store/history-store.ts
 ```
 
-The background video lives entirely in `public/videos` and is served from your own origin — no external requests at runtime. `SiteBackdrop` mounts one fixed video layer behind every route (with warm ember scrims for contrast), while page sections stay translucent enough to let it show through. `VideoBackground` renders a poster immediately, pauses when the tab is hidden, and shows only the still frame for `prefers-reduced-motion`.
+The background video lives entirely in `public/videos` and is served from your own origin — no external requests at runtime. `SiteBackdrop` mounts one fixed video layer behind every route (with deep-teal scrims for contrast), while page sections stay translucent enough to let it show through. `VideoBackground` renders a poster immediately, pauses when the tab is hidden, and shows only the still frame for `prefers-reduced-motion`.
 
-The palette is tuned to the footage: deep umber surfaces (`#0b0704`, cards `#171009`), ember-orange primary (`#f97316`), amber accents and stone-grey body copy. Risk severity keeps its own scale — green low, amber medium, orange high, red critical — so colour never blurs a verdict.
+The palette is deep teal green, warm ivory and coral orange: surfaces sit between `#061d1b` and `#0e322e`, body copy is warm ivory (`#f4ecdf`), the primary action is coral (`#ff6f4e`), and pale gold (`#e6c690`) marks verification and medium-severity detail. Risk severity keeps its own scale — teal-green low, pale gold medium, coral high, coral-red critical — so colour never blurs a verdict. The Tailwind orange, amber, stone, emerald, red, sky, rose and yellow scales are remapped onto these tokens, which is why every existing utility class inherits the palette without one-off overrides.
 
 The console material is a CSS layer in `globals.css`: tiled SVG grain, a masked engineering grid, a slow scan sweep, a radar sweep behind the hero graph and HUD corner brackets. Every surface panel gets a subtle grain overlay so large fills never look flat. All motion is reduced or disabled under `prefers-reduced-motion`.
+
+The landing hero is a real perspective stage rather than a flat card: the verdict console floats above two depth plates, ringed by orbital ellipses, with OTP/domain/scan chips on their own Z planes over a receding grid floor. `HeroVerdictScene` tilts the stack a few degrees toward a fine pointer, coalesced to one spring write per animation frame and disabled for touch and reduced motion. The same depth vocabulary carries into the product — a beveled primary action, layered tool-header icons, lift on guide and KPI cards, a leaning browser mock on `/extension`, and a ground plane plus drifting glass panes in the fixed `SiteBackdrop`. Only transforms/opacity animate, and the decorative layers drop out on small screens, in calm profiles and under reduced transparency.
 
 The header status strip is truthful rather than decorative: engine liveness, whether a Safe Browsing key is configured, privacy guarantees, a UTC clock and the app version. Counts in telemetry come from shipped content and engine behaviour — no fabricated usage or accuracy numbers. The threat ticker is the one deliberately theatrical element, marked **Simulated feed**.
 

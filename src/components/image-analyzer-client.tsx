@@ -207,7 +207,7 @@ export function ImageAnalyzerClient() {
               "relative mt-4 overflow-hidden rounded-xl border border-dashed transition-colors",
               dragging
                 ? "border-orange-400/60 bg-orange-500/[0.06]"
-                : "border-[#4a3422] bg-black/20"
+                : "border-[#2a5a51] bg-black/20"
             )}
           >
             {preview ? (
@@ -381,16 +381,16 @@ async function createDemoScreenshot(): Promise<Blob> {
   const context = canvas.getContext("2d");
   if (!context) throw new Error("Could not create the demo screenshot.");
 
-  context.fillStyle = "#efeae2";
+  context.fillStyle = "#efe8dc";
   context.fillRect(0, 0, canvas.width, canvas.height);
 
-  context.fillStyle = "#075e54";
+  context.fillStyle = "#0f4c44";
   context.fillRect(0, 0, canvas.width, 92);
   context.fillStyle = "#ffffff";
   context.font = "600 34px system-ui, sans-serif";
   context.fillText("SBI Alerts", 36, 58);
   context.font = "22px system-ui, sans-serif";
-  context.fillStyle = "#d1fae5";
+  context.fillStyle = "#d7f4e9";
   context.fillText("online", 36, 84);
 
   const bubbleX = 44;
@@ -401,7 +401,7 @@ async function createDemoScreenshot(): Promise<Blob> {
   roundRect(context, bubbleX, bubbleY, bubbleWidth, bubbleHeight, 26);
   context.fill();
 
-  context.fillStyle = "#111b21";
+  context.fillStyle = "#0b2320";
   context.font = "31px system-ui, sans-serif";
   const lines = wrapText(
     context,
@@ -412,7 +412,7 @@ async function createDemoScreenshot(): Promise<Blob> {
     context.fillText(line, bubbleX + 36, bubbleY + 70 + index * 42);
   });
 
-  context.fillStyle = "#667781";
+  context.fillStyle = "#6f8177";
   context.font = "22px system-ui, sans-serif";
   context.textAlign = "right";
   context.fillText("10:42 AM", bubbleX + bubbleWidth - 36, bubbleY + bubbleHeight - 24);

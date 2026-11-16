@@ -14,11 +14,11 @@ interface Particle {
 }
 
 const COLORS = [
-  "#f97316", // ember-500
-  "#fb923c", // ember-400
-  "#fdba74", // ember-300
-  "#7c3d12", // deep umber
-  "#fbbf24", // gold
+  "#ff6f4e", // ember-500
+  "#ff8a66", // ember-400
+  "#ffb59c", // ember-300
+  "#7d2c1c", // deep umber
+  "#e6c690", // gold
 ];
 
 const TAU = Math.PI * 2;
@@ -114,7 +114,7 @@ export function ParticleField({
         }
       }
       ctx.lineWidth = 0.5;
-      ctx.strokeStyle = "rgba(249,115,22,0.11)";
+      ctx.strokeStyle = "rgba(255, 111, 78,0.11)";
       ctx.stroke();
 
       // Soft halo (flat fill, no gradient allocation).

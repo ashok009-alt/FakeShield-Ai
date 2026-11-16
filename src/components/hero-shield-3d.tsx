@@ -9,27 +9,27 @@ import {
 
 // Animated floating particles
 const PARTICLES = [
-  { x: 20,  y: 15,  size: 2,   delay: 0,    color: "#f97316", dur: 4  },
-  { x: 80,  y: 10,  size: 1.5, delay: 0.8,  color: "#fb923c", dur: 5  },
-  { x: 90,  y: 50,  size: 2.5, delay: 1.5,  color: "#f97316", dur: 3.5},
-  { x: 75,  y: 85,  size: 1.5, delay: 0.4,  color: "#fdba74", dur: 6  },
-  { x: 15,  y: 75,  size: 2,   delay: 1.2,  color: "#fb923c", dur: 4.5},
-  { x: 10,  y: 40,  size: 1,   delay: 2,    color: "#f97316", dur: 7  },
-  { x: 50,  y: 5,   size: 1.5, delay: 0.6,  color: "#fb923c", dur: 5.5},
-  { x: 95,  y: 30,  size: 1,   delay: 1.8,  color: "#fb923c", dur: 4.8},
+  { x: 20,  y: 15,  size: 2,   delay: 0,    color: "#ff6f4e", dur: 4  },
+  { x: 80,  y: 10,  size: 1.5, delay: 0.8,  color: "#ff8a66", dur: 5  },
+  { x: 90,  y: 50,  size: 2.5, delay: 1.5,  color: "#ff6f4e", dur: 3.5},
+  { x: 75,  y: 85,  size: 1.5, delay: 0.4,  color: "#ffb59c", dur: 6  },
+  { x: 15,  y: 75,  size: 2,   delay: 1.2,  color: "#ff8a66", dur: 4.5},
+  { x: 10,  y: 40,  size: 1,   delay: 2,    color: "#ff6f4e", dur: 7  },
+  { x: 50,  y: 5,   size: 1.5, delay: 0.6,  color: "#ff8a66", dur: 5.5},
+  { x: 95,  y: 30,  size: 1,   delay: 1.8,  color: "#ff8a66", dur: 4.8},
 ];
 
 // Network nodes for the threat-network diagram
 const NODES = [
-  { cx: 160, cy: 160, r: 6,  label: "Core",     color: "#f97316" },
-  { cx: 80,  cy: 80,  r: 4,  label: "Phishing",  color: "#f87171" },
-  { cx: 240, cy: 80,  r: 4,  label: "OTP Fraud", color: "#fb923c" },
-  { cx: 80,  cy: 240, r: 4,  label: "KYC Scam",  color: "#fbbf24" },
-  { cx: 240, cy: 240, r: 4,  label: "Malware",   color: "#f87171" },
-  { cx: 160, cy: 50,  r: 3,  label: "URL",       color: "#fbbf24" },
-  { cx: 50,  cy: 160, r: 3,  label: "Email",     color: "#34d399" },
-  { cx: 270, cy: 160, r: 3,  label: "SMS",       color: "#fb923c" },
-  { cx: 160, cy: 270, r: 3,  label: "Social",    color: "#f59e0b" },
+  { cx: 160, cy: 160, r: 6,  label: "Core",     color: "#ff6f4e" },
+  { cx: 80,  cy: 80,  r: 4,  label: "Phishing",  color: "#ff8b7a" },
+  { cx: 240, cy: 80,  r: 4,  label: "OTP Fraud", color: "#ff8a66" },
+  { cx: 80,  cy: 240, r: 4,  label: "KYC Scam",  color: "#e6c690" },
+  { cx: 240, cy: 240, r: 4,  label: "Malware",   color: "#ff8b7a" },
+  { cx: 160, cy: 50,  r: 3,  label: "URL",       color: "#e6c690" },
+  { cx: 50,  cy: 160, r: 3,  label: "Email",     color: "#3fc0a3" },
+  { cx: 270, cy: 160, r: 3,  label: "SMS",       color: "#ff8a66" },
+  { cx: 160, cy: 270, r: 3,  label: "Social",    color: "#d9ad69" },
 ];
 
 const EDGES = [
@@ -38,10 +38,10 @@ const EDGES = [
 ];
 
 const LABELS = [
-  { label: "PHISHING", color: "#f87171", tint: "rgba(239,68,68" },
-  { label: "OTP FRAUD", color: "#fb923c", tint: "rgba(249,115,22" },
-  { label: "MALWARE", color: "#fbbf24", tint: "rgba(245,158,11" },
-  { label: "SPOOFING", color: "#fbbf24", tint: "rgba(180,83,9" },
+  { label: "PHISHING", color: "#ff8b7a", tint: "rgba(240,75,63" },
+  { label: "OTP FRAUD", color: "#ff8a66", tint: "rgba(255,111,78" },
+  { label: "MALWARE", color: "#e6c690", tint: "rgba(217,173,105" },
+  { label: "SPOOFING", color: "#e6c690", tint: "rgba(164,116,58" },
 ];
 
 /**
@@ -224,7 +224,7 @@ export function HeroShield3D() {
             width: 320, height: 320,
             top: "50%", left: "50%",
             x: "-50%", y: "-50%",
-            border: "1px solid rgba(249,115,22,0.15)",
+            border: "1px solid rgba(255, 111, 78,0.15)",
           }}
           animate={active ? { scale: [1, 1.08, 1], opacity: [0.3, 0.15, 0.3] } : { scale: 1, opacity: 0.25 }}
           transition={active ? { duration: 4, repeat: Infinity, ease: "easeInOut" } : { duration: 0.4 }}
@@ -236,7 +236,7 @@ export function HeroShield3D() {
             width: 380, height: 380,
             top: "50%", left: "50%",
             x: "-50%", y: "-50%",
-            border: "1px solid rgba(249,115,22,0.07)",
+            border: "1px solid rgba(255, 111, 78,0.07)",
           }}
           animate={active ? { scale: [1, 1.05, 1], opacity: [0.15, 0.07, 0.15] } : { scale: 1, opacity: 0.12 }}
           transition={active ? { duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 } : { duration: 0.4 }}
@@ -249,9 +249,9 @@ export function HeroShield3D() {
             width: 320, height: 320,
             top: "50%", left: "50%",
             x: "-50%", y: "-50%",
-            background: "radial-gradient(ellipse, rgba(26,18,11,0.9) 60%, rgba(11,7,4,0.95) 100%)",
-            border: "1px solid rgba(249,115,22,0.12)",
-            boxShadow: "0 0 60px -10px rgba(249,115,22,0.2), inset 0 0 40px rgba(0,0,0,0.5)",
+            background: "radial-gradient(ellipse, rgba(9, 35, 32,0.9) 60%, rgba(6, 29, 27,0.95) 100%)",
+            border: "1px solid rgba(255, 111, 78,0.12)",
+            boxShadow: "0 0 60px -10px rgba(255, 111, 78,0.2), inset 0 0 40px rgba(0,0,0,0.5)",
           }}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -264,7 +264,7 @@ export function HeroShield3D() {
                 key={i}
                 x1={NODES[a].cx} y1={NODES[a].cy}
                 x2={NODES[b].cx} y2={NODES[b].cy}
-                stroke="rgba(249,115,22,0.18)"
+                stroke="rgba(255, 111, 78,0.18)"
                 strokeWidth="0.8"
                 initial={{ pathLength: 0, opacity: 0 }}
                 animate={{ pathLength: 1, opacity: 1 }}
@@ -278,7 +278,7 @@ export function HeroShield3D() {
                   <motion.circle
                     key={`pkt-${i}`}
                     r={1.5}
-                    fill="#fb923c"
+                    fill="#ff8a66"
                     opacity={0.7}
                     initial={{ cx: NODES[a].cx, cy: NODES[a].cy }}
                     animate={{
@@ -329,14 +329,14 @@ export function HeroShield3D() {
             >
               <path
                 d="M160 138 L174 143.2V152c0 8.3-5.8 15.3-14 18.4C151.8 167.3 146 160.3 146 152V143.2Z"
-                fill="rgba(249,115,22,0.25)"
-                stroke="#f97316"
+                fill="rgba(255, 111, 78,0.25)"
+                stroke="#ff6f4e"
                 strokeWidth="1.2"
               />
               <path
                 d="M155.5 157l4 4 8-8.5"
                 fill="none"
-                stroke="#fb923c"
+                stroke="#ff8a66"
                 strokeWidth="1.8"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -348,7 +348,7 @@ export function HeroShield3D() {
               <motion.line
                 x1="0" y1="0"
                 x2="0" y2="320"
-                stroke="rgba(249,115,22,0.15)"
+                stroke="rgba(255, 111, 78,0.15)"
                 strokeWidth="1"
                 animate={{ x: [0, 320, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
@@ -394,8 +394,8 @@ export function HeroShield3D() {
           style={{
             width: 120, height: 50,
             top: 20, right: -30,
-            background: "rgba(26,18,11,0.85)",
-            border: "1px solid rgba(249,115,22,0.2)",
+            background: "rgba(9, 35, 32,0.85)",
+            border: "1px solid rgba(255, 111, 78,0.2)",
             translateZ: 30,
             boxShadow: "0 8px 24px rgba(0,0,0,0.5)",
           }}
@@ -413,8 +413,8 @@ export function HeroShield3D() {
           style={{
             width: 130, height: 50,
             bottom: 20, left: -35,
-            background: "rgba(26,18,11,0.85)",
-            border: "1px solid rgba(245,158,11,0.2)",
+            background: "rgba(9, 35, 32,0.85)",
+            border: "1px solid rgba(217, 173, 105,0.2)",
             translateZ: 25,
             boxShadow: "0 8px 24px rgba(0,0,0,0.5)",
           }}
@@ -433,8 +433,8 @@ export function HeroShield3D() {
             width: 110, height: 44,
             top: "50%", right: -40,
             marginTop: -22,
-            background: "rgba(26,18,11,0.85)",
-            border: "1px solid rgba(34,197,94,0.2)",
+            background: "rgba(9, 35, 32,0.85)",
+            border: "1px solid rgba(34, 169, 138,0.2)",
             translateZ: 20,
             boxShadow: "0 8px 24px rgba(0,0,0,0.5)",
           }}

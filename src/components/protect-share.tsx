@@ -112,7 +112,7 @@ export function ProtectShareClient() {
             </span>
             <h2 className="text-sm font-semibold text-foreground">What the other person sees</h2>
           </div>
-          <div className="mt-4 rounded-2xl border border-border bg-[#0f0a06] p-4">
+          <div className="mt-4 rounded-2xl border border-border bg-[#061c1a] p-4">
             <p className="text-center text-[9.5px] font-semibold uppercase tracking-[0.16em] text-orange-300/70">
               A safety check from {name.trim() || "Family"}
             </p>
@@ -122,7 +122,7 @@ export function ProtectShareClient() {
               <div className="h-2.5 w-11/12 rounded bg-white/[0.05]" />
               <div className="h-2.5 w-4/5 rounded bg-white/[0.04]" />
             </div>
-            <div className="mt-3 grid h-9 place-items-center rounded-lg bg-orange-500/80 text-[11px] font-semibold text-[#180a02]">
+            <div className="mt-3 grid h-9 place-items-center rounded-lg bg-orange-500/80 text-[11px] font-semibold text-[#1a0c08]">
               Check this message
             </div>
             <p className="mt-2 text-center text-[9px] text-stone-600">

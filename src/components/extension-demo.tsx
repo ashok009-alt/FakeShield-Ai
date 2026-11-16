@@ -172,8 +172,8 @@ export function ExtensionDemo() {
         </div>
       </div>
 
-      <div className="overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0b0805] shadow-2xl shadow-black/50">
-        <div className="flex items-center gap-1.5 border-b border-white/[0.06] bg-[#171009] px-3 py-2">
+      <div className="browser-3d overflow-hidden rounded-2xl border border-white/[0.08] bg-[#071e1c] shadow-2xl shadow-black/50">
+        <div className="flex items-center gap-1.5 border-b border-white/[0.06] bg-[#0b2825] px-3 py-2">
           <span className="size-2.5 rounded-full bg-red-400/70" />
           <span className="size-2.5 rounded-full bg-amber-400/70" />
           <span className="size-2.5 rounded-full bg-emerald-400/70" />
@@ -186,7 +186,7 @@ export function ExtensionDemo() {
           </span>
         </div>
 
-        <div className="flex flex-wrap gap-1 border-b border-white/[0.06] bg-[#120c07] px-2 py-1.5">
+        <div className="flex flex-wrap gap-1 border-b border-white/[0.06] bg-[#071f1d] px-2 py-1.5">
           {TABS.map((item) => {
             const Icon = item.icon;
             return (
@@ -208,7 +208,7 @@ export function ExtensionDemo() {
           })}
         </div>
 
-        <div className="relative min-h-[420px] bg-[radial-gradient(circle_at_30%_20%,rgba(251,146,60,0.08),transparent_55%)] p-4 sm:p-5">
+        <div className="relative min-h-[420px] bg-[radial-gradient(circle_at_30%_20%,rgba(255, 138, 102,0.08),transparent_55%)] p-4 sm:p-5">
           <div className="max-w-[78%] space-y-3 opacity-80">
             <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3">
               {tab.preview.from ? (
@@ -225,7 +225,7 @@ export function ExtensionDemo() {
             <div className="h-2.5 w-2/3 rounded bg-white/[0.025]" />
           </div>
 
-          <div className="absolute right-3 top-3 w-[248px] overflow-hidden rounded-xl border border-white/10 bg-[#171009] shadow-2xl shadow-black/80 sm:right-5 sm:top-5">
+          <div className="absolute right-3 top-3 w-[248px] overflow-hidden rounded-xl border border-white/10 bg-[#0b2825] shadow-2xl shadow-black/80 sm:right-5 sm:top-5">
             <div className="flex items-center justify-between border-b border-white/[0.07] px-3 py-2.5">
               <div className="flex items-center gap-1.5">
                 <span className="grid size-5 place-items-center rounded bg-orange-500/15">

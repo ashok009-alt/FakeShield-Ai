@@ -16,10 +16,10 @@ const SEVERITY_BORDER: Record<string, string> = {
 };
 
 const SEVERITY_BG: Record<string, string> = {
-  low: "rgba(249,115,22,0.04)",
-  medium: "rgba(234,179,8,0.04)",
-  high: "rgba(249,115,22,0.05)",
-  critical: "rgba(239,68,68,0.06)",
+  low: "rgba(255, 111, 78,0.04)",
+  medium: "rgba(216, 177, 114,0.04)",
+  high: "rgba(255, 111, 78,0.05)",
+  critical: "rgba(240, 75, 63,0.06)",
 };
 
 export function SignalList({

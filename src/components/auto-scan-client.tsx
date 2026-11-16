@@ -140,25 +140,25 @@ export function AutoScanClient() {
     <div
       ref={dropRef}
       className="min-h-screen page-shell py-12 sm:py-16"
-      style={{ background: "linear-gradient(160deg,#050d1a 0%,#040b15 100%)" }}
+      style={{ background: "linear-gradient(160deg,#051d22 0%,#051a1f 100%)" }}
     >
       {/* Page header */}
       <div className="max-w-3xl mx-auto mb-10">
         <div className="flex items-center gap-2 mb-4">
-          <span className="flex items-center gap-1.5 rounded-sm border border-[#1b2e47] bg-[#071221] px-2.5 py-1 text-[10px] font-mono font-bold tracking-wider text-slate-400">
+          <span className="flex items-center gap-1.5 rounded-sm border border-[#123a42] bg-[#061f24] px-2.5 py-1 text-[10px] font-mono font-bold tracking-wider text-slate-400">
             <span className="live-dot" />
             AUTO-SCAN ENGINE
           </span>
           <span
             className="rounded-sm px-2 py-0.5 text-[9px] font-black tracking-widest uppercase"
-            style={{ background:"rgba(245,158,11,0.1)", border:"1px solid rgba(245,158,11,0.3)", color:"#fbbf24" }}
+            style={{ background:"rgba(217, 173, 105,0.1)", border:"1px solid rgba(217, 173, 105,0.3)", color:"#e6c690" }}
           >
             ZERO INPUT REQUIRED
           </span>
         </div>
         <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl mb-3">
           Auto{" "}
-          <span style={{ background:"linear-gradient(90deg,#38bdf8,#0ea5e9)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", backgroundClip:"text" }}>
+          <span style={{ background:"linear-gradient(90deg,#4bc0b8,#27a49c)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", backgroundClip:"text" }}>
             Threat
           </span>{" "}
           Detector
@@ -180,21 +180,21 @@ export function AutoScanClient() {
               animate={{ opacity:1, y:0 }}
               exit={{    opacity:0, y:-8 }}
               className="rounded-sm p-10 text-center"
-              style={{ background:"linear-gradient(160deg,#091c30,#060f1f)", border:"1px solid rgba(14,165,233,0.15)" }}
+              style={{ background:"linear-gradient(160deg,#0a2b32,#061f24)", border:"1px solid rgba(39, 164, 156,0.15)" }}
             >
               <div className="flex flex-col items-center gap-5">
                 <div className="relative">
                   <motion.div
                     className="size-20 rounded-full grid place-items-center"
-                    style={{ background:"rgba(14,165,233,0.08)", border:"2px solid rgba(14,165,233,0.2)" }}
-                    animate={{ scale:[1,1.06,1], borderColor:["rgba(14,165,233,0.2)","rgba(14,165,233,0.5)","rgba(14,165,233,0.2)"] }}
+                    style={{ background:"rgba(39, 164, 156,0.08)", border:"2px solid rgba(39, 164, 156,0.2)" }}
+                    animate={{ scale:[1,1.06,1], borderColor:["rgba(39, 164, 156,0.2)","rgba(39, 164, 156,0.5)","rgba(39, 164, 156,0.2)"] }}
                     transition={{ duration:1.8, repeat:Infinity }}
                   >
                     <Clipboard className="size-8 text-sky-400" />
                   </motion.div>
                   <motion.div
                     className="absolute inset-0 rounded-full"
-                    style={{ border:"1px solid rgba(14,165,233,0.2)" }}
+                    style={{ border:"1px solid rgba(39, 164, 156,0.2)" }}
                     animate={{ scale:[1,1.5], opacity:[0.6,0] }}
                     transition={{ duration:1.5, repeat:Infinity }}
                   />
@@ -219,13 +219,13 @@ export function AutoScanClient() {
               animate={{ opacity:1, y:0 }}
               exit={{    opacity:0, y:-8 }}
               className="rounded-sm p-10"
-              style={{ background:"linear-gradient(160deg,#091c30,#060f1f)", border:"1px solid rgba(14,165,233,0.15)" }}
+              style={{ background:"linear-gradient(160deg,#0a2b32,#061f24)", border:"1px solid rgba(39, 164, 156,0.15)" }}
             >
               <div className="flex items-start gap-5">
                 <div className="shrink-0">
                   <motion.div
                     className="size-14 rounded-sm grid place-items-center"
-                    style={{ background:"rgba(14,165,233,0.08)", border:"1px solid rgba(14,165,233,0.2)" }}
+                    style={{ background:"rgba(39, 164, 156,0.08)", border:"1px solid rgba(39, 164, 156,0.2)" }}
                     animate={{ opacity:[1,0.6,1] }}
                     transition={{ duration:1.2, repeat:Infinity }}
                   >
@@ -293,18 +293,18 @@ export function AutoScanClient() {
               <div
                 className="rounded-sm overflow-hidden"
                 style={{
-                  background:"linear-gradient(160deg,#091c30,#060f1f)",
-                  border: result.riskScore >= 75 ? "1px solid rgba(239,68,68,0.25)"
-                        : result.riskScore >= 50 ? "1px solid rgba(249,115,22,0.22)"
-                        : result.riskScore >= 25 ? "1px solid rgba(245,158,11,0.2)"
-                        : "1px solid rgba(34,197,94,0.2)",
+                  background:"linear-gradient(160deg,#0a2b32,#061f24)",
+                  border: result.riskScore >= 75 ? "1px solid rgba(240, 75, 63,0.25)"
+                        : result.riskScore >= 50 ? "1px solid rgba(255, 111, 78,0.22)"
+                        : result.riskScore >= 25 ? "1px solid rgba(217, 173, 105,0.2)"
+                        : "1px solid rgba(34, 169, 138,0.2)",
                   boxShadow:"0 20px 60px -20px rgba(0,0,0,0.8)",
                 }}
               >
                 {/* Header */}
                 <div
                   className="flex items-center justify-between px-5 py-3.5 border-b"
-                  style={{ borderColor:"rgba(255,255,255,0.06)", background:"rgba(14,165,233,0.03)" }}
+                  style={{ borderColor:"rgba(255,255,255,0.06)", background:"rgba(39, 164, 156,0.03)" }}
                 >
                   <div className="flex items-center gap-2 text-[12px] font-bold tracking-wide text-white">
                     <Radio className="size-4 text-sky-400" />
@@ -313,7 +313,7 @@ export function AutoScanClient() {
                   <div className="flex items-center gap-2">
                     <span
                       className="text-[9px] font-black tracking-widest uppercase rounded-sm px-2 py-1"
-                      style={{ background:"rgba(14,165,233,0.08)", border:"1px solid rgba(14,165,233,0.2)", color:"#38bdf8" }}
+                      style={{ background:"rgba(39, 164, 156,0.08)", border:"1px solid rgba(39, 164, 156,0.2)", color:"#4bc0b8" }}
                     >
                       <TypeIcon className="size-2.5 inline mr-1" />
                       {inputType.toUpperCase()}
@@ -332,7 +332,7 @@ export function AutoScanClient() {
                         </span>
                         <span
                           className="text-[9px] font-black tracking-widest uppercase rounded-sm px-2 py-0.5"
-                          style={{ background:"rgba(14,165,233,0.06)", border:"1px solid rgba(14,165,233,0.15)", color:"#38bdf8" }}
+                          style={{ background:"rgba(39, 164, 156,0.06)", border:"1px solid rgba(39, 164, 156,0.15)", color:"#4bc0b8" }}
                         >
                           {result.threatFeed === "verified" ? "✓ Threat-feed verified" : "Heuristic analysis"}
                         </span>
@@ -360,7 +360,7 @@ export function AutoScanClient() {
                           <Link
                             href={`/report/${result.id}`}
                             className="inline-flex items-center gap-1.5 rounded-sm px-4 py-2 text-[12px] font-bold tracking-wide text-sky-950"
-                            style={{ background:"linear-gradient(135deg,#38bdf8,#0ea5e9)" }}
+                            style={{ background:"linear-gradient(135deg,#4bc0b8,#27a49c)" }}
                           >
                             Full Report <ArrowRight className="size-3.5" />
                           </Link>
@@ -382,13 +382,13 @@ export function AutoScanClient() {
               {result.signals.length > 0 && (
                 <div
                   className="rounded-sm p-5"
-                  style={{ background:"linear-gradient(160deg,#091c30,#060f1f)", border:"1px solid #1b2e47" }}
+                  style={{ background:"linear-gradient(160deg,#0a2b32,#061f24)", border:"1px solid #123a42" }}
                 >
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-sm font-bold text-white">Warning signs detected</h3>
                     <span
                       className="text-[10px] font-bold rounded-sm px-2 py-0.5"
-                      style={{ background:"rgba(239,68,68,0.1)", border:"1px solid rgba(239,68,68,0.2)", color:"#f87171" }}
+                      style={{ background:"rgba(240, 75, 63,0.1)", border:"1px solid rgba(240, 75, 63,0.2)", color:"#ff8b7a" }}
                     >
                       {result.signals.length} found
                     </span>
@@ -401,7 +401,7 @@ export function AutoScanClient() {
               {result.recommendations.length > 0 && (
                 <div
                   className="rounded-sm p-5"
-                  style={{ background:"rgba(14,165,233,0.04)", border:"1px solid rgba(14,165,233,0.15)" }}
+                  style={{ background:"rgba(39, 164, 156,0.04)", border:"1px solid rgba(39, 164, 156,0.15)" }}
                 >
                   <h3 className="text-sm font-bold text-white mb-4">What you should do</h3>
                   <ol className="space-y-3">
@@ -409,7 +409,7 @@ export function AutoScanClient() {
                       <li key={i} className="flex items-start gap-3">
                         <span
                           className="grid size-6 shrink-0 place-items-center rounded-sm text-[11px] font-black text-sky-400"
-                          style={{ background:"rgba(14,165,233,0.1)", border:"1px solid rgba(14,165,233,0.2)" }}
+                          style={{ background:"rgba(39, 164, 156,0.1)", border:"1px solid rgba(39, 164, 156,0.2)" }}
                         >
                           {i+1}
                         </span>
@@ -429,12 +429,12 @@ export function AutoScanClient() {
               initial={{ opacity:0, y:16 }}
               animate={{ opacity:1, y:0 }}
               className="rounded-sm p-10 text-center"
-              style={{ background:"linear-gradient(160deg,#091c30,#060f1f)", border:"1px solid #1b2e47" }}
+              style={{ background:"linear-gradient(160deg,#0a2b32,#061f24)", border:"1px solid #123a42" }}
             >
               <div className="flex flex-col items-center gap-4">
                 <div
                   className="size-16 rounded-sm grid place-items-center"
-                  style={{ background:"rgba(14,165,233,0.07)", border:"1px solid rgba(14,165,233,0.18)" }}
+                  style={{ background:"rgba(39, 164, 156,0.07)", border:"1px solid rgba(39, 164, 156,0.18)" }}
                 >
                   {step === "permission_denied"
                     ? <AlertTriangle className="size-7 text-amber-400" />
@@ -458,7 +458,7 @@ export function AutoScanClient() {
                     value={manualText}
                     onChange={(e) => setManualText(e.target.value)}
                     placeholder="Or paste a suspicious message or URL here…"
-                    className="w-full rounded-sm border border-[#1b2e47] bg-black/30 px-4 py-3 text-[13px] text-white placeholder:text-slate-500 focus:outline-none focus:border-sky-500/40 min-h-[100px] resize-y"
+                    className="w-full rounded-sm border border-[#123a42] bg-black/30 px-4 py-3 text-[13px] text-white placeholder:text-slate-500 focus:outline-none focus:border-sky-500/40 min-h-[100px] resize-y"
                     onKeyDown={(e) => {
                       if ((e.ctrlKey || e.metaKey) && e.key === "Enter") runAnalysis(manualText);
                     }}
@@ -468,7 +468,7 @@ export function AutoScanClient() {
                       onClick={() => runAnalysis(manualText)}
                       disabled={manualText.trim().length < 5}
                       className="flex-1 flex items-center justify-center gap-2 rounded-sm py-2.5 text-[12px] font-bold uppercase tracking-wide text-sky-950 disabled:opacity-40 disabled:cursor-not-allowed"
-                      style={{ background:"linear-gradient(135deg,#38bdf8,#0ea5e9)" }}
+                      style={{ background:"linear-gradient(135deg,#4bc0b8,#27a49c)" }}
                     >
                       <Zap className="size-4" /> Analyze Now
                     </button>
@@ -492,7 +492,7 @@ export function AutoScanClient() {
               initial={{ opacity:0 }}
               animate={{ opacity:1 }}
               className="rounded-sm p-8 text-center"
-              style={{ background:"rgba(239,68,68,0.05)", border:"1px solid rgba(239,68,68,0.2)" }}
+              style={{ background:"rgba(240, 75, 63,0.05)", border:"1px solid rgba(240, 75, 63,0.2)" }}
             >
               <ShieldAlert className="size-10 text-red-400 mx-auto mb-3" />
               <h2 className="text-lg font-bold text-white mb-2">Analysis failed</h2>
@@ -512,9 +512,9 @@ export function AutoScanClient() {
         {/* Drag-drop hint */}
         <p className="mt-6 text-center text-[11px] text-slate-600">
           You can also drag and drop a text file here, or press{" "}
-          <kbd className="rounded border border-[#1b2e47] bg-white/[0.04] px-1.5 py-0.5 font-mono text-[10px]">Ctrl</kbd>
+          <kbd className="rounded border border-[#123a42] bg-white/[0.04] px-1.5 py-0.5 font-mono text-[10px]">Ctrl</kbd>
           {" "}+{" "}
-          <kbd className="rounded border border-[#1b2e47] bg-white/[0.04] px-1.5 py-0.5 font-mono text-[10px]">V</kbd>
+          <kbd className="rounded border border-[#123a42] bg-white/[0.04] px-1.5 py-0.5 font-mono text-[10px]">V</kbd>
           {" "}to paste and scan.
         </p>
       </div>

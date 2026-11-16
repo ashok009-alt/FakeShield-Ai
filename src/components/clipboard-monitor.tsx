@@ -175,18 +175,13 @@ export function ClipboardMonitor() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="fixed bottom-6 right-6 z-50"
+        className="fixed bottom-20 right-4 z-50 hidden sm:block"
       >
         <button
           onClick={requestPermission}
-          className="flex items-center gap-2.5 rounded-sm px-4 py-3 text-[12px] font-bold tracking-wide text-sky-950 shadow-lg transition-all hover:brightness-110"
-          style={{
-            background:  "linear-gradient(135deg,#38bdf8,#0ea5e9)",
-            boxShadow:   "0 4px 20px rgba(14,165,233,0.45)",
-            letterSpacing:"0.05em",
-          }}
+          className="flex items-center gap-2.5 rounded-full border border-emerald-300/30 bg-[#0a2b28]/92 px-4 py-3 text-[11px] font-bold tracking-[0.12em] text-[#d7f4e9] shadow-[0_14px_44px_-16px_rgba(0,0,0,0.9)] backdrop-blur-md transition-all hover:border-emerald-300/55 hover:bg-[#0e3a35]/95"
         >
-          <Radio className="size-4 animate-pulse" />
+          <Radio className="size-4 animate-pulse text-emerald-300" />
           ENABLE AUTO-DETECT
         </button>
       </motion.div>
@@ -203,14 +198,14 @@ export function ClipboardMonitor() {
           animate={{ opacity: 1, x: 0,  scale: 1    }}
           exit={{    opacity: 0, x: 60, scale: 0.95 }}
           transition={{ duration: 0.35, ease: [0.16,1,0.3,1] }}
-          className="fixed bottom-6 right-6 z-50 w-[340px]"
+          className="fixed bottom-20 right-4 z-50 w-[340px] max-w-[calc(100vw-3rem)]"
           style={{
-            background:  "linear-gradient(160deg,#091c30 0%,#060f1f 100%)",
+            background:  "linear-gradient(160deg,#0a2b32 0%,#061f24 100%)",
             border:      alert.level === "threat"
-              ? "1px solid rgba(239,68,68,0.35)"
+              ? "1px solid rgba(240, 75, 63,0.35)"
               : alert.level === "checking"
-              ? "1px solid rgba(14,165,233,0.25)"
-              : "1px solid rgba(34,197,94,0.25)",
+              ? "1px solid rgba(39, 164, 156,0.25)"
+              : "1px solid rgba(34, 169, 138,0.25)",
             borderRadius:"8px",
             boxShadow:   "0 20px 60px -20px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.03) inset",
           }}
@@ -231,7 +226,7 @@ export function ClipboardMonitor() {
                 <ShieldCheck className="size-4 text-emerald-400" />
               )}
               <span className="text-[11px] font-black tracking-widest uppercase"
-                style={{ color: alert.level === "threat" ? "#f87171" : alert.level === "safe" ? "#4ade80" : "#38bdf8" }}>
+                style={{ color: alert.level === "threat" ? "#ff8b7a" : alert.level === "safe" ? "#56d3ae" : "#4bc0b8" }}>
                 {alert.level === "checking" ? "Scanning Clipboard…"
                   : alert.level === "threat" ? "⚠ Threat Detected"
                   : "✓ Clipboard Safe"}
@@ -265,14 +260,14 @@ export function ClipboardMonitor() {
                   <div className="mb-3">
                     <div className="flex justify-between mb-1.5">
                       <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Risk score</span>
-                      <span className="text-[12px] font-black" style={{ color: alert.score >= 75 ? "#f87171" : "#fb923c" }}>
+                      <span className="text-[12px] font-black" style={{ color: alert.score >= 75 ? "#ef4444" : "#f59e0b" }}>
                         {alert.score}/100 — {alert.riskLevel}
                       </span>
                     </div>
-                    <div className="h-2 w-full rounded-full overflow-hidden" style={{ background:"rgba(255,255,255,0.06)" }}>
+                    <div className="h-2 w-full rounded-full overflow-hidden bg-slate-800">
                       <motion.div
                         className="h-full rounded-full"
-                        style={{ background: alert.score >= 75 ? "#ef4444" : "#f97316" }}
+                        style={{ background: alert.score >= 75 ? "#ef4444" : "#f59e0b" }}
                         initial={{ width: 0 }}
                         animate={{ width: `${alert.score}%` }}
                         transition={{ duration: 0.8, ease: [0.16,1,0.3,1] }}
@@ -286,8 +281,7 @@ export function ClipboardMonitor() {
 
                 {/* Clipped text preview */}
                 <div
-                  className="rounded-sm px-3 py-2 mb-3"
-                  style={{ background:"rgba(255,255,255,0.03)", border:"1px solid rgba(255,255,255,0.06)" }}
+                  className="rounded-xl px-3 py-2 mb-3 bg-slate-950/60 border border-slate-800"
                 >
                   <div className="flex items-center gap-1.5 mb-1">
                     <Clipboard className="size-3 text-slate-500" />
@@ -307,15 +301,13 @@ export function ClipboardMonitor() {
                       href={alert.reportId
                         ? `/report/${alert.reportId}`
                         : `/analyze?text=${encodeURIComponent(alert.text.slice(0,500))}`}
-                      className="flex-1 flex items-center justify-center gap-1.5 rounded-sm py-2 text-[11px] font-bold uppercase tracking-wide text-sky-950 transition-all hover:brightness-110"
-                      style={{ background:"linear-gradient(135deg,#38bdf8,#0ea5e9)" }}
+                      className="flex-1 flex items-center justify-center gap-1.5 rounded-xl py-2 text-[11px] font-bold uppercase tracking-wide text-white transition-all bg-blue-600 hover:bg-blue-500"
                     >
                       Full Report <ArrowRight className="size-3.5" />
                     </Link>
                     <button
                       onClick={() => { setDismissed(true); setAlert(null); }}
-                      className="px-3 rounded-sm text-[11px] font-bold text-slate-400 hover:text-white transition-colors"
-                      style={{ border:"1px solid rgba(255,255,255,0.08)" }}
+                      className="px-3 rounded-xl text-[11px] font-semibold text-slate-400 hover:text-white transition-colors border border-slate-800"
                     >
                       Dismiss
                     </button>
@@ -349,9 +341,9 @@ export function ClipboardMonitor() {
           <div
             className="flex items-center gap-2 rounded-sm px-3 py-1.5 text-[9px] font-bold uppercase tracking-widest"
             style={{
-              background:  "rgba(7,18,33,0.9)",
-              border:      "1px solid rgba(14,165,233,0.15)",
-              color:       "#4a6785",
+              background:  "rgba(5, 26, 31,0.9)",
+              border:      "1px solid rgba(39, 164, 156,0.15)",
+              color:       "#4a7a72",
               backdropFilter: "blur(8px)",
             }}
           >

@@ -70,15 +70,15 @@ export function AssistantBubble() {
         <div
           role="dialog"
           aria-label="Ask FakeShield assistant"
-          className="fixed bottom-3 right-3 z-40 flex h-[min(600px,calc(100dvh-1.5rem))] w-[calc(100vw-1.5rem)] max-w-[384px] flex-col overflow-hidden rounded-2xl border border-orange-500/20 bg-[#100a06] shadow-[0_24px_80px_-20px_rgba(0,0,0,0.9)] sm:bottom-5 sm:right-5"
+          className="fixed bottom-3 right-3 z-40 flex h-[min(600px,calc(100dvh-1.5rem))] w-[calc(100vw-1.5rem)] max-w-[384px] flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 shadow-2xl shadow-black/80 sm:bottom-5 sm:right-5 backdrop-blur-xl"
         >
-          <header className="flex items-center gap-2 border-b border-white/[0.07] bg-[#171009]/80 px-3.5 py-3">
-            <span className="grid size-7 place-items-center rounded-lg border border-orange-500/25 bg-orange-500/10">
-              <ShieldCheck className="size-4 text-orange-300" />
+          <header className="flex items-center gap-2 border-b border-slate-800 bg-slate-950/80 px-4 py-3">
+            <span className="grid size-7 place-items-center rounded-lg border border-blue-500/25 bg-blue-500/10">
+              <ShieldCheck className="size-4 text-blue-400" />
             </span>
             <div className="min-w-0 flex-1">
-              <p className="text-[12px] font-semibold text-white">Ask FakeShield</p>
-              <p className="truncate text-[9.5px] text-stone-500">
+              <p className="text-[13px] font-semibold text-white">Ask FakeShield</p>
+              <p className="truncate text-[10px] text-slate-400">
                 {context
                   ? `Context: ${context.riskLevel} ${context.inputType} · ${context.riskScore}/100`
                   : "Rule-based safety assistant"}
@@ -88,7 +88,7 @@ export function AssistantBubble() {
               type="button"
               onClick={reset}
               aria-label="Clear conversation"
-              className="rounded-md p-1.5 text-stone-500 transition-colors hover:bg-white/5 hover:text-stone-300"
+              className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-800 hover:text-white"
             >
               <RotateCcw className="size-3.5" />
             </button>
@@ -96,21 +96,21 @@ export function AssistantBubble() {
               type="button"
               onClick={() => setOpen(false)}
               aria-label="Close assistant"
-              className="rounded-md p-1.5 text-stone-500 transition-colors hover:bg-white/5 hover:text-stone-300"
+              className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-800 hover:text-white"
             >
               <X className="size-4" />
             </button>
           </header>
 
-          <div ref={scrollRef} className="flex-1 space-y-3 overflow-y-auto px-3.5 py-3.5">
+          <div ref={scrollRef} className="flex-1 space-y-3 overflow-y-auto px-4 py-4">
             {messages.map((message) => (
               <div key={message.id} className={cn("flex", message.role === "user" ? "justify-end" : "justify-start")}>
                 <div
                   className={cn(
-                    "max-w-[88%] rounded-xl px-3 py-2.5 text-[11.5px] leading-5",
+                    "max-w-[88%] rounded-xl px-3 py-2 text-[12px] leading-5",
                     message.role === "user"
-                      ? "bg-orange-500 text-[#180a02]"
-                      : "border border-white/[0.06] bg-white/[0.03] text-stone-300"
+                      ? "bg-blue-600 text-white font-medium"
+                      : "border border-slate-800 bg-slate-950/60 text-slate-200"
                   )}
                 >
                   <p className="whitespace-pre-wrap break-words">{message.text}</p>
@@ -177,9 +177,9 @@ export function AssistantBubble() {
               event.preventDefault();
               submit();
             }}
-            className="border-t border-white/[0.07] bg-[#140d08] px-3 py-2.5"
+            className="border-t border-slate-800 bg-slate-950/90 px-3.5 py-3"
           >
-            <div className="flex items-end gap-2">
+            <div className="flex items-center gap-2">
               <input
                 ref={inputRef}
                 value={input}
@@ -187,19 +187,19 @@ export function AssistantBubble() {
                 placeholder="Ask about a result or a scam pattern…"
                 aria-label="Message the assistant"
                 maxLength={400}
-                className="h-9 min-w-0 flex-1 rounded-lg border border-white/[0.08] bg-black/30 px-3 text-[11.5px] text-stone-200 placeholder:text-stone-600 focus:border-orange-500/40 focus:outline-none"
+                className="h-10 min-w-0 flex-1 rounded-xl border border-slate-800 bg-slate-900 px-3 text-[12px] text-slate-200 placeholder:text-slate-500 focus:border-blue-500 focus:outline-none"
               />
               <button
                 type="submit"
                 disabled={!input.trim() || thinking}
                 aria-label="Send message"
-                className="grid size-9 shrink-0 place-items-center rounded-lg bg-orange-500 text-[#180a02] transition-colors hover:bg-orange-400 disabled:opacity-40"
+                className="grid size-10 shrink-0 place-items-center rounded-xl bg-blue-600 text-white transition-colors hover:bg-blue-500 disabled:opacity-40 cursor-pointer"
               >
                 <ArrowUp className="size-4" />
               </button>
             </div>
-            <p className="mt-1.5 text-center text-[8.5px] leading-4 text-stone-600">
-              Rule-based answers, no generative model. Not a substitute for official advice.
+            <p className="mt-2 text-center text-[9px] leading-4 text-slate-500">
+              Rule-based deterministic answers. Always verify with official sources.
             </p>
           </form>
         </div>
@@ -208,15 +208,15 @@ export function AssistantBubble() {
           type="button"
           onClick={() => setOpen(true)}
           aria-label="Open Ask FakeShield assistant"
-          className="group fixed bottom-4 right-4 z-40 flex items-center gap-2 rounded-full border border-orange-500/30 bg-[#1b120b] py-2 pl-2 pr-2 text-orange-200 shadow-[0_12px_40px_-8px_rgba(251,146,60,0.35)] transition-all hover:border-orange-400/50 hover:bg-[#241609] sm:bottom-5 sm:right-5 sm:pr-4"
+          className="group fixed bottom-4 right-4 z-40 flex items-center gap-2.5 rounded-full border border-blue-500/30 bg-slate-900/90 py-2 pl-2.5 pr-3 text-blue-200 shadow-xl shadow-black/50 transition-all hover:border-blue-400 hover:bg-slate-800 sm:bottom-6 sm:right-6 sm:pr-4 backdrop-blur-md cursor-pointer"
         >
-          <span className="relative grid size-8 place-items-center rounded-full bg-orange-500/15">
+          <span className="relative grid size-8 place-items-center rounded-full bg-blue-500/20 text-blue-400">
             <Sparkles className="size-4" />
             {context ? (
-              <span className="absolute -right-0.5 -top-0.5 size-2 rounded-full border border-[#1b120b] bg-emerald-400" />
+              <span className="absolute -right-0.5 -top-0.5 size-2.5 rounded-full border border-slate-900 bg-emerald-400" />
             ) : null}
           </span>
-          <span className="hidden text-[11px] font-semibold sm:inline">Ask FakeShield</span>
+          <span className="hidden text-xs font-semibold sm:inline">Ask FakeShield</span>
         </button>
       )}
     </>

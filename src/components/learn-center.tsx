@@ -50,7 +50,7 @@ export function LearnCenter() {
             key={guide.id}
             type="button"
             onClick={() => setActive(guide)}
-            className="surface group flex h-full flex-col rounded-2xl p-5 text-left transition-colors hover:border-orange-500/35 hover:bg-white/[0.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400/50"
+            className="surface lift-3d group flex h-full flex-col rounded-2xl p-5 text-left transition-colors hover:border-orange-500/35 hover:bg-white/[0.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400/50"
           >
             <div className="flex items-start justify-between gap-3">
               <span className="grid size-10 place-items-center rounded-xl border border-orange-500/20 bg-orange-500/[0.07] text-orange-300">

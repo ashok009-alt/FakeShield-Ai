@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0b0704",
+  themeColor: "#090d16",
   width: "device-width",
   initialScale: 1,
 };
@@ -82,9 +82,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           closeButton
           toastOptions={{
             style: {
-              background: "#150e08",
-              border: "1px solid #342416",
-              color: "#f5ecdf",
+              background: "#0f172a",
+              border: "1px solid #1e293b",
+              color: "#f8fafc",
             },
           }}
         />

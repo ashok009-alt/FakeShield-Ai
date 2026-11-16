@@ -183,7 +183,7 @@ function VerdictCard({
           icon: ShieldAlert,
           panel: "border-red-500/40 bg-red-500/[0.12]",
           text: "text-red-300",
-          glow: "shadow-[0_0_80px_-20px_rgba(239,68,68,0.5)]",
+          glow: "shadow-[0_0_80px_-20px_rgba(240, 75, 63,0.5)]",
         }
       : verdict === "maybe"
         ? {
@@ -193,7 +193,7 @@ function VerdictCard({
             icon: HelpCircle,
             panel: "border-amber-500/40 bg-amber-500/[0.10]",
             text: "text-amber-300",
-            glow: "shadow-[0_0_80px_-20px_rgba(245,158,11,0.4)]",
+            glow: "shadow-[0_0_80px_-20px_rgba(217, 173, 105,0.4)]",
           }
         : {
             word: "NO",
@@ -202,7 +202,7 @@ function VerdictCard({
             icon: CheckCircle2,
             panel: "border-emerald-500/35 bg-emerald-500/[0.08]",
             text: "text-emerald-300",
-            glow: "shadow-[0_0_80px_-20px_rgba(16,185,129,0.35)]",
+            glow: "shadow-[0_0_80px_-20px_rgba(32, 165, 134,0.35)]",
           };
   const Icon = meta.icon;
   const href = reportPath(result);

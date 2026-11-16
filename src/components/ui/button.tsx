@@ -6,26 +6,26 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-sm text-sm font-semibold transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 active:scale-95 active:translate-y-px [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-semibold transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98] [&_svg]:size-4 [&_svg]:shrink-0 cursor-pointer",
   {
     variants: {
       variant: {
         default:
-          "bg-gradient-to-r from-orange-400 to-orange-600 text-[#180a02] shadow-[0_1px_0_rgba(255,255,255,0.2)_inset,0_4px_14px_rgba(249,115,22,0.35)] hover:brightness-110 hover:-translate-y-px",
+          "bg-blue-600 hover:bg-blue-500 text-white shadow-sm shadow-blue-600/30 border border-blue-500/50 hover:-translate-y-px",
         secondary:
-          "border border-[#4a3422] bg-[#171009] text-white hover:border-stone-500 hover:bg-[#1d130a]",
+          "border border-slate-700/80 bg-slate-800/90 text-slate-100 hover:bg-slate-700/90 hover:border-slate-600 shadow-sm",
         outline:
-          "border border-[#3a2a1c] bg-transparent text-white hover:bg-white/[0.04]",
-        ghost: "text-stone-400 hover:bg-white/[0.05] hover:text-white",
+          "border border-slate-800 bg-slate-900/60 text-slate-200 hover:bg-slate-800 hover:border-slate-700",
+        ghost: "text-slate-400 hover:bg-slate-800/60 hover:text-slate-100",
         destructive:
-          "border border-red-500/25 bg-red-500/10 text-red-300 hover:bg-red-500/15",
-        link: "text-orange-300 underline-offset-4 hover:underline hover:text-orange-200",
+          "border border-red-500/30 bg-red-500/15 text-red-200 hover:bg-red-500/25",
+        link: "text-blue-400 underline-offset-4 hover:underline hover:text-blue-300",
       },
       size: {
         default: "h-10 px-4",
-        sm: "h-9 rounded-lg px-3 text-[13px]",
-        lg: "h-12 px-6 text-[15px]",
-        icon: "size-9",
+        sm: "h-8 rounded-lg px-3 text-xs",
+        lg: "h-12 rounded-xl px-6 text-[15px]",
+        icon: "size-10 rounded-xl",
       },
     },
     defaultVariants: {

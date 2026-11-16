@@ -33,14 +33,14 @@ export const trendSummary = {
 };
 
 export const trendCategories: TrendCategory[] = [
-  { name: "Fake KYC / bank", reports: 3180, change: 22, color: "#fb923c" },
-  { name: "OTP theft", reports: 2740, change: 34, color: "#ef4444" },
-  { name: "Delivery fee", reports: 1980, change: 19, color: "#f59e0b" },
-  { name: "Investment / crypto", reports: 1540, change: 12, color: "#fbbf24" },
-  { name: "Digital arrest", reports: 1210, change: 28, color: "#f97316" },
-  { name: "Job / task", reports: 940, change: 9, color: "#fb7185" },
-  { name: "Lottery / prize", reports: 520, change: -6, color: "#a8a29e" },
-  { name: "Tech support", reports: 370, change: 4, color: "#78716c" },
+  { name: "Fake KYC / bank", reports: 3180, change: 22, color: "#ff8a66" },
+  { name: "OTP theft", reports: 2740, change: 34, color: "#f25042" },
+  { name: "Delivery fee", reports: 1980, change: 19, color: "#d9ad69" },
+  { name: "Investment / crypto", reports: 1540, change: 12, color: "#e6c690" },
+  { name: "Digital arrest", reports: 1210, change: 28, color: "#ff6f4e" },
+  { name: "Job / task", reports: 940, change: 9, color: "#ff9c8a" },
+  { name: "Lottery / prize", reports: 520, change: -6, color: "#b3b7a9" },
+  { name: "Tech support", reports: 370, change: 4, color: "#8a9a90" },
 ];
 
 export const trendDaily: TrendDay[] = [

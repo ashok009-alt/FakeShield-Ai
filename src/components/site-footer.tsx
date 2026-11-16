@@ -43,8 +43,8 @@ const GROUPS = [
 export function SiteFooter() {
   return (
     <footer
-      className="relative z-10 mt-20 border-t border-[#3a2a1c]"
-      style={{ background: "linear-gradient(180deg, rgba(11,7,4,0.88) 0%, rgba(10,6,4,0.96) 100%)" }}
+      className="relative z-10 mt-20 border-t border-[#1f4a43]"
+      style={{ background: "linear-gradient(180deg, rgba(6, 29, 27,0.88) 0%, rgba(5, 24, 22,0.96) 100%)" }}
     >
       <div className="page-shell py-12">
         <div className="grid gap-10 md:grid-cols-[1.5fr_0.75fr_0.75fr_0.75fr]">
@@ -57,8 +57,8 @@ export function SiteFooter() {
             </p>
             {/* Disclaimer block */}
             <div
-              className="mt-5 flex items-start gap-2.5 rounded-sm border border-[#4a3422] p-3 max-w-xs"
-              style={{ background: "rgba(249,115,22,0.03)" }}
+              className="mt-5 flex items-start gap-2.5 rounded-sm border border-[#2a5a51] p-3 max-w-xs"
+              style={{ background: "rgba(255, 111, 78,0.03)" }}
             >
               <ShieldCheck className="size-3.5 text-amber-500/60 shrink-0 mt-0.5" />
               <p className="text-[11px] leading-5 text-stone-600">{DISCLAIMER_TEXT}</p>
@@ -88,7 +88,7 @@ export function SiteFooter() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 flex flex-col gap-3 border-t border-[#3a2a1c] pt-6 text-[11px] text-stone-600 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-3 border-t border-[#1f4a43] pt-6 text-[11px] text-stone-600 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-2">
             <Radio className="size-3 text-amber-600/50" />
             <span>© {new Date().getFullYear()} FakeShield AI · Hackathon Demo · Next.js 15</span>

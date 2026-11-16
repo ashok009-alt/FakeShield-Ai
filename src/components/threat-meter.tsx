@@ -5,16 +5,16 @@ import { useRef } from "react";
 
 const THREATS = [
   { label: "OTP Phishing",        pct: 92, color: "#ef4444", sev: "CRITICAL" },
-  { label: "Fake Bank KYC",       pct: 88, color: "#f97316", sev: "HIGH"     },
+  { label: "Fake Bank KYC",       pct: 88, color: "#ea580c", sev: "HIGH"     },
   { label: "Delivery Fee Scam",   pct: 74, color: "#f59e0b", sev: "HIGH"     },
   { label: "Investment Fraud",    pct: 68, color: "#f59e0b", sev: "MEDIUM"   },
   { label: "Job Offer Scam",      pct: 55, color: "#f59e0b", sev: "MEDIUM"   },
 ];
 
 const SEV_COLORS: Record<string, string> = {
-  CRITICAL: "#f87171",
-  HIGH:     "#fb923c",
-  MEDIUM:   "#fbbf24",
+  CRITICAL: "#ef4444",
+  HIGH:     "#ea580c",
+  MEDIUM:   "#f59e0b",
 };
 
 export function ThreatMeter() {

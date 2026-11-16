@@ -45,42 +45,42 @@ export function SystemStatusStrip({
   ].filter(Boolean).length;
 
   return (
-    <div className="hidden border-b border-[#2c1f14] bg-[#0b0704]/95 md:block">
-      <div className="page-shell flex h-7 items-center justify-between gap-6 font-mono text-[9.5px] uppercase tracking-[0.16em] text-stone-500">
+    <div className="hidden border-b border-slate-800/80 bg-slate-950/95 md:block">
+      <div className="page-shell flex h-7 items-center justify-between gap-6 font-mono text-[9.5px] uppercase tracking-[0.16em] text-slate-400">
         <div className="flex items-center gap-3.5">
-          <span className="flex items-center gap-1.5 text-stone-400">
+          <span className="flex items-center gap-1.5 text-slate-300">
             <span className="live-dot" />
-            Engine online
+            Threat Engine Online
           </span>
-          <span className="h-3 w-px bg-[#382718]" />
+          <span className="h-3 w-px bg-slate-800" />
           <span>
-            AI{" "}
-            <span className={providers.gemini ? "text-violet-300" : "text-amber-400/90"}>
-              {providers.gemini ? "Gemini hybrid" : "rules only"}
+            AI Core{" "}
+            <span className={providers.gemini ? "text-blue-400" : "text-slate-300"}>
+              {providers.gemini ? "Gemini Hybrid" : "40+ Deterministic Rules"}
             </span>
           </span>
-          <span className="h-3 w-px bg-[#382718]" />
+          <span className="h-3 w-px bg-slate-800" />
           <span>
-            Threat feeds{" "}
-            <span className={threatCount > 0 ? "text-emerald-400" : "text-amber-400/90"}>
-              {threatCount > 0 ? `${threatCount} connected` : threatFeed ? "1 connected" : "heuristic only"}
+            Threat Intel{" "}
+            <span className={threatCount > 0 ? "text-emerald-400" : "text-blue-400"}>
+              {threatCount > 0 ? `${threatCount} Connected` : threatFeed ? "Safe Browsing" : "Registry Heuristics"}
             </span>
           </span>
-          <span className="h-3 w-px bg-[#382718]" />
-          <span className="hidden lg:inline">Links never fetched</span>
+          <span className="h-3 w-px bg-slate-800" />
+          <span className="hidden lg:inline text-slate-400">Zero-Log Privacy</span>
         </div>
 
         <div className="flex items-center gap-3.5">
-          <span className="hidden lg:inline">Anonymous session</span>
-          <span className="hidden h-3 w-px bg-[#382718] lg:inline-block" />
+          <span className="hidden lg:inline text-slate-400">Anonymous Session</span>
+          <span className="hidden h-3 w-px bg-slate-800 lg:inline-block" />
           <span className="flex items-center gap-1.5">
-            <span className="text-stone-600">UTC</span>
-            <span className="text-stone-400">
+            <span className="text-slate-500">UTC</span>
+            <span className="text-slate-300">
               <UtcClock />
             </span>
           </span>
-          <span className="h-3 w-px bg-[#382718]" />
-          <span className="text-stone-600">v1.0.0</span>
+          <span className="h-3 w-px bg-slate-800" />
+          <span className="text-slate-400">v2.0-Prod</span>
         </div>
       </div>
     </div>

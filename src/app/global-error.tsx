@@ -25,8 +25,8 @@ export default function GlobalError({
           minHeight: "100vh",
           display: "grid",
           placeItems: "center",
-          background: "#0b0704",
-          color: "#f3e8dc",
+          background: "#061d1b",
+          color: "#f4ecdf",
           fontFamily:
             "Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif",
           padding: 24,
@@ -37,8 +37,8 @@ export default function GlobalError({
             maxWidth: 460,
             width: "100%",
             textAlign: "center",
-            background: "linear-gradient(160deg, #1a120b 0%, #0f0a06 100%)",
-            border: "1px solid #3a2a1c",
+            background: "linear-gradient(160deg, #0a2320 0%, #061c1a 100%)",
+            border: "1px solid #1f4a43",
             borderRadius: 16,
             padding: "36px 28px",
           }}
@@ -51,9 +51,9 @@ export default function GlobalError({
               display: "grid",
               placeItems: "center",
               borderRadius: 14,
-              border: "1px solid rgba(249,115,22,0.28)",
-              background: "rgba(249,115,22,0.1)",
-              color: "#fdba74",
+              border: "1px solid rgba(255, 111, 78,0.28)",
+              background: "rgba(255, 111, 78,0.1)",
+              color: "#ffb59c",
               fontSize: 24,
               fontWeight: 700,
             }}
@@ -63,7 +63,7 @@ export default function GlobalError({
           <h1 style={{ margin: "18px 0 0", fontSize: 22, letterSpacing: "-0.02em" }}>
             FakeShield AI could not load
           </h1>
-          <p style={{ margin: "10px 0 0", color: "#b39c88", fontSize: 13, lineHeight: 1.7 }}>
+          <p style={{ margin: "10px 0 0", color: "#b9b3a2", fontSize: 13, lineHeight: 1.7 }}>
             A critical error stopped the app from starting. Reloading usually fixes it — your saved
             analyses are stored in the local database and were not affected.
           </p>
@@ -75,9 +75,9 @@ export default function GlobalError({
               height: 40,
               padding: "0 20px",
               borderRadius: 8,
-              border: "1px solid rgba(249,115,22,0.35)",
-              background: "linear-gradient(90deg, #fb923c, #f97316)",
-              color: "#180a02",
+              border: "1px solid rgba(255, 111, 78,0.35)",
+              background: "linear-gradient(90deg, #ff8a66, #ff6f4e)",
+              color: "#1a0c08",
               fontSize: 13,
               fontWeight: 700,
               cursor: "pointer",
